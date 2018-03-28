@@ -1,6 +1,6 @@
 <div style="width: 90%">
     <div style="float: left">
-         <img onclick="location.replace('<?= Front::myUrl("main/index") ?>')" src="<?= Front::myUrl('images/1701279_large.jpg') ?>"></h1>
+         <img onclick="location.replace('<?= Front::myUrl("main/index") ?>')" src="<?= Front::myUrl('images/zabivaka_full.png') ?>"></h1>
     </div>
     <div style="float: left">
     <ul>
@@ -11,7 +11,7 @@
         <?php if(Security::getUserProfileName()=="admin"){ ?>
         <li><h1><a href="<?= Front::myUrl("admin/carga") ?>" style="color: blue">Cargar datos Reales</a></h1></li>
         <?php } ?>
-    </u>
+    </ul>
     </div>
     
 </div>

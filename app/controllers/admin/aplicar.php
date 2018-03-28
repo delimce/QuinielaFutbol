@@ -33,9 +33,7 @@ function _aplicar() {
         $db->updateWhere("usuario_id = {$resultados[$i]['usuario_id']} and partido_id = $partido");
     }
 
-
     $db->commit_transacction();
-
 
     $db->close();
 }

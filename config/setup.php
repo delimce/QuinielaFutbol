@@ -11,18 +11,18 @@
  * notacion de variables de configuracion del framework Avalon
  */
 
-define(APP_PATH, 'app/'); //with trailing slash pls
-define(WEB_FOLDER, '/brasil2014/'); //CARPETA CONTENEDORA
+define("APP_PATH", 'app/'); //with trailing slash pls
+define("WEB_FOLDER", '/russia2018/'); //CARPETA CONTENEDORA
 //===============================================
 // Other Settings
 //===============================================
-define(WEB_DOMAIN, 'http://localhost'); //with http:// and NO trailing slash pls
-define(VIEW_PATH, 'app/views/'); //with trailing slash pls
-define(LAYOUT_PATH, 'app/layouts/'); //with trailing slash pls
+define("WEB_DOMAIN", 'http://zserver'); //with http:// and NO trailing slash pls
+define("VIEW_PATH", 'app/views/'); //with trailing slash pls
+define("LAYOUT_PATH", 'app/layouts/'); //with trailing slash pls
 
-define(AV_defaultTimeZone,"America/Caracas"); //////zona horaria por defecto para la aplicacion
-define(AV_defaultDs, "pollamundial"); /////Data source por defecto. segun los data sources creados en el archivo dataSources.php
-define(AV_noDsFound, "DataSource doesn't exist!");
+define("AV_defaultTimeZone","America/Caracas"); //////zona horaria por defecto para la aplicacion
+define("AV_defaultDs", "russia"); /////Data source por defecto. segun los data sources creados en el archivo dataSources.php
+define("AV_noDsFound", "DataSource doesn't exist!");
 
 ///includes (No cambiar)
 include_once(dirname(__FILE__) . "/" . "dataSources.php");

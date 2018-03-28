@@ -21,7 +21,7 @@
 <article class="module width_full">
 
     <div style="float: left;">
-        <img onclick="location.replace('<?= Front::myUrl("main/index") ?>')" src="<?= Front::myUrl('images/1701279_small.jpg') ?>"></h1>
+        <img onclick="location.replace('<?= Front::myUrl("main/index") ?>')" src="<?= Front::myUrl('images/zabivaka_full.png') ?>"></h1>
     </div>
     <span style="text-height: 30px"><?= $ronda ?></span><br>
     <span style="text-height: 30px">Fecha actual: <b><?= $fecha ?></b></span>

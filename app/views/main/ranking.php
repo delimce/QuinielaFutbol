@@ -13,7 +13,7 @@
 <article class="module width_full">
     <div style="width: 90%">
         <div style="float: left">
-            <img onclick="location.replace('<?= Front::myUrl("main/index") ?>')" src="<?= Front::myUrl('images/1701279_small.jpg') ?>"></h1>
+            <img style="width: 130px; padding: 20px" onclick="location.replace('<?= Front::myUrl("main/index") ?>')" src="<?= Front::myUrl('images/zabivaka_full.png') ?>"></h1>
         </div>
         <div>
             <table style="width: 400px; text-align: center" border="0" cellspacing="1" cellpadding="1">
