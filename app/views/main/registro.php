@@ -76,7 +76,7 @@
     <header><h3>Nuevo Usuario</h3></header>
 
     <div class="module_content">
-        <h1 style="text-align: left"><img src="<?= Front::myUrl('images/100819.png') ?>"></h1>
+        <h1 style="text-align: left"><img src="<?= Front::myUrl('images/wc2018.png') ?>"></h1>
         <form name="form1" id="form1">
             <fieldset>
                 <label for="r0nombre">Nombre completo:</label>

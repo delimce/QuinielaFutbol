@@ -18,7 +18,7 @@ Security::initSession();
 date_default_timezone_set(AV_defaultTimeZone);
 
 /////variable de titulo del sitio
-Security::setSessionVar("TITTLE", "Quiniela Brasil 2014 ");
+Security::setSessionVar("TITTLE", "Quiniela Rusia 2018 ");
 Security::setSessionVar("RONDA",1);
 
 //===============================================
