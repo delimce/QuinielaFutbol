@@ -2,7 +2,7 @@
 
 html, div, map, dt, isindex, form, header, aside, section, section, article, footer {  
     display: block;  
-} 
+}
 
 html, body {
     margin:0;
@@ -432,6 +432,7 @@ section#main {
     -moz-border-radius: 5px;
     border-radius: 5px;
     background: #ffffff;
+    min-height: 500px;
 }
 
 #main .module header h3 {
