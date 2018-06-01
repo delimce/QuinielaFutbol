@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `accesos_log` (
   `id` bigint(20) NOT NULL,
   `user` int(11) NOT NULL,
-  `perfil` enum('edificio','distribuidor','admin') NOT NULL,
+  `perfil` enum('user','admin') NOT NULL,
   `fecha` datetime NOT NULL,
   `cliente_info` mediumtext
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;

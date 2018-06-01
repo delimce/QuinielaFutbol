@@ -40,6 +40,7 @@ header#header {
     background-color:#fff;
 }
 
+
 h1.site_title, header#header h2.section_title {
     margin: 0;
     position:relative;
@@ -425,6 +426,7 @@ section#main {
 
 .module {
     border: 1px solid #9BA0AF;
+    margin: auto !important;
     width: 100%;
     margin: 20px 3% 0 3%;
     margin-top: 20px;

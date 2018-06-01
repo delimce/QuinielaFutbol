@@ -17,13 +17,12 @@
         <?php include_javascripts(); ?>
         <title><?php echo $siteTitle ?></title>
     </head>
-<center>
+
     <body>
+     <div style="text-align:center">
         <!-- end of header bar --><!-- end of secondary bar --><!-- end of sidebar -->
         <?php echo (isset($body) && is_array($body)) ? implode("\n", $body) : '' ?>
         <p>&nbsp;</p>
-        
+     </div>
     </body>
-
-</center>
 </html>
