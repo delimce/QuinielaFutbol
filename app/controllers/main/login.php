@@ -8,10 +8,10 @@ function _login() {
 
         $db = new ObjectDB();
 
-        $pass = Form::getVar("clave", $_POST);
+        @$pass = Form::getVar("clave", $_POST);
 
-        $db->setSql(FactoryDao::getLoginData($user, $pass));
-        $db->getResultFields();
+        @$db->setSql(FactoryDao::getLoginData($user, $pass));
+        @$db->getResultFields();
 
         if ($db->getNumRows() > 0) {
 
