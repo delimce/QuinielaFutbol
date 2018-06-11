@@ -41,6 +41,7 @@
                 data: formData,
                 success: function(data) {
                     data = $.trim(data);
+                    console.log(data);
                     if (data > 0) {
                         $(location).attr('href', '<?= Front::myUrl('main/index'); ?>');
                     } else {
