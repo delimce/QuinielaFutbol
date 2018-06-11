@@ -43,5 +43,6 @@
 
     </table>
     <p>&nbsp;</p>
+    <p class="backi"><a href="javascript:history.back();">regresar</a></p>
 
 </article>

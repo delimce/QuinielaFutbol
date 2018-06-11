@@ -103,6 +103,19 @@ section#secondary_bar .user {
     width: 23%;
 }
 
+.myUser{
+    width: 300px;
+    height: auto;
+    float: right;
+    padding: 8px 6px 0 0;
+    text-align: right;
+}
+
+.backi{
+    padding-left: 14px;
+    text-transform: capitalize;
+}
+
 .user_name {
     line-height: 35px;
     text-indent: 25px;
@@ -118,8 +131,7 @@ section#secondary_bar .user {
     display: block;
     position:relative;
     float: right;
-    width: 20%;
-    height: 35px;
+    width: 200px;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;

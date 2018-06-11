@@ -34,9 +34,14 @@
     <body>
         <header id="header">
 
-            <div style="float: end" class="opcion_user">
-                <p class="user_name"><?= Security::getUserName() ?></p>
-                <p class="logout_user"><a href="<?= Front::myUrl('main/logout') ?>">Cerrar</a></p>
+
+            <div class="myUser">
+                <span style="font-weight: bold">
+                    Usuario:&nbsp;<?= Security::getUserName() ?>
+                </span><br>
+                <span style="font-weight: bold">
+                    <a href="<?= Front::myUrl('main/logout') ?>">Cerrar</a>
+                </span>
             </div>
 
         </header> <!-- end of header bar -->

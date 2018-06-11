@@ -13,5 +13,12 @@
         <?php } ?>
     </ul>
     </div>
+    <p>&nbsp;</p>
+
+    <div style="margin: 30px; font-size: 16px; display: inline-block"><br>
+        <span style="text-transform: uppercase; font-weight: bolder">Pote acumulado (1era Ronda, 48 partidos)</span><br>
+        <span style="">Primer Lugar:</span><span style="color: blue">&nbsp;Bs. 2.000.000</span><br>
+        <span style="">Segundo Lugar:</span><span style="color: #79C20D">&nbsp;Bs. 1.000.000</span>
+    </div>
     
 </div>

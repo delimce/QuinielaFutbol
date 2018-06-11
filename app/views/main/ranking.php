@@ -16,7 +16,7 @@
             <img style="width: 130px; padding: 20px" onclick="location.replace('<?= Front::myUrl("main/index") ?>')" src="<?= Front::myUrl('images/zabivaka_full.png') ?>"></h1>
         </div>
         <div>
-            <table style="width: 400px; text-align: center" border="0" cellspacing="1" cellpadding="1">
+            <table style="max-width: 370px; min-width: 290px; text-align: center" border="0" cellspacing="1" cellpadding="1">
                 <thead>
                     <tr>
                         <th>Usuario</th>
@@ -26,7 +26,7 @@
                 <tbody>
                     <?php while ($row = $lista->getRowFields()) { ?>
                         <tr>
-                            <td style="alignment-adjust: left"><?= $row->nombre ?></td>
+                            <td style="text-align: left; padding-left: 20px"><?= $row->nombre ?></td>
                             <td><?= $row->puntos ?></td>
                         </tr>
                         <tr>
@@ -37,6 +37,6 @@
                 </tbody>
             </table>
         </div>
-        <p><a href="javascript:history.back();">regresar</a></p>
+        <p class="backi"><a href="javascript:history.back();">regresar</a></p>
     </div>
 </article>

@@ -13,6 +13,6 @@
                 <li>El ultimo invita las cervezas</li>
             </ul>
         </div>
-        <p><a href="javascript:history.back();">regresar</a></p>
+        <p class="backi"><a href="javascript:history.back();">regresar</a></p>
     </div>
 </article>
