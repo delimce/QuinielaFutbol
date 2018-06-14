@@ -116,6 +116,12 @@ section#secondary_bar .user {
     text-transform: capitalize;
 }
 
+.cell-disable{
+    color: #44474F;
+    font-size: 17pt;
+    font-weight: bold;
+}
+
 .user_name {
     line-height: 35px;
     text-indent: 25px;

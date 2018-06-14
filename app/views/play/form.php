@@ -65,9 +65,21 @@
                 <tr>
                     <td style="text-align: right"><?= utf8_encode($nombre1) ?></td>
                     <td><img src="<?= Front::myUrl('images/band/' . $bandera1) ?>"></td>
-                    <td><input type="number" min="0" max="15" name="<?= $row->idp . "_m1" ?>" <?php if(!isInTime($row->fecha)) echo 'readonly' ?>  value="<?= $row->marcador1 ?>" style="width: 35px; text-align: center"></td>
+                    <td>
+                        <?php if(!isInTime($row->fecha)){ ?>
+                              <span class="cell-disable"><?= $row->marcador1 ?></span>
+                        <?php }else{ ?>
+                        <input type="number" min="0" max="15" name="<?= $row->idp . "_m1" ?>"  value="<?= $row->marcador1 ?>" style="width: 35px; text-align: center">
+                        <?php } ?>
+                    </td>
                     <td><b>Vs</b></td>
-                    <td><input type="number" min="0" max="15" name="<?= $row->idp . "_m2" ?>" <?php if(!isInTime($row->fecha)) echo 'readonly' ?> value="<?= $row->marcador2 ?>" style="width: 35px; text-align: center"></td>
+                    <td>
+                        <?php if(!isInTime($row->fecha)){ ?>
+                            <span class="cell-disable"><?= $row->marcador2 ?></span>
+                        <?php }else{ ?>
+                        <input type="number" min="0" max="15" name="<?= $row->idp . "_m2" ?>" value="<?= $row->marcador2 ?>" style="width: 35px; text-align: center">
+                        <?php } ?>
+                    </td>
                     <td><img src="<?= Front::myUrl('images/band/' . $bandera2) ?>"></td>
                     <td style="text-align: left"><?= utf8_encode($nombre2) ?></td>
                 </tr>

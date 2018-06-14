@@ -33,9 +33,9 @@
             <tr>
                 <td style="text-align: right"><?= utf8_encode($nombre1) ?></td>
                 <td><img src="<?= Front::myUrl('images/band/' . $bandera1) ?>"></td>
-                <td><?= $row->marcador1 ?></td>
+                <td class="cell-disable"><?= $row->marcador1 ?></td>
                 <td><b>Vs</b></td>
-                <td><?= $row->marcador2 ?></td>
+                <td class="cell-disable"><?= $row->marcador2 ?></td>
                 <td><img src="<?= Front::myUrl('images/band/' . $bandera2) ?>"></td>
                 <td style="text-align: left"><?= utf8_encode($nombre2) ?></td>
             </tr>
