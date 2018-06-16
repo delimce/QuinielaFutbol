@@ -24,7 +24,7 @@ function _save() {
     $db->setField("ronda_id", $rondaID);
 
        //// borrando el partido si no tiene resultados cargados y si aun no se ha hecho
-       $db->deleteWhere("usuario_id = " . Security::getUserID() . " and estatus = 0 and partido_id in (select id from partido where estatus = 0 and fecha > '$fechaActual' ) ");
+       $db->deleteWhere("usuario_id = " . Security::getUserID() . " and estatus = 0 and partido_id in (select id from partido where estatus = 0 and (fecha - INTERVAL 60 MINUTE) > '$fechaActual' ) ");
     
     ////insertando resultados de partidos
     for ($i = 0; $i < count($partidos); $i++) {
