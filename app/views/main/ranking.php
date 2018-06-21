@@ -19,20 +19,20 @@
             <table style="max-width: 370px; min-width: 290px; text-align: center" border="0" cellspacing="1" cellpadding="1">
                 <thead>
                     <tr>
+                        <th>&nbsp;</th>
                         <th>Usuario</th>
                         <th>Puntos</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $pos = 1; ?>
                     <?php while ($row = $lista->getRowFields()) { ?>
-                        <tr>
-                            <td style="text-align: left; padding-left: 20px"><?= $row->nombre ?></td>
+                        <tr class="<?= (Security::getUserID()==$row->id)?'selected':'none' ?>">
+                            <td><?=$pos++?></td>
+                            <td style="text-align: left; padding:2px 0 5px 5px"><?= $row->nombre ?></td>
                             <td><?= $row->puntos ?></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
+
                     <?php } ?>
                 </tbody>
             </table>

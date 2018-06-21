@@ -132,6 +132,11 @@ section#secondary_bar .user {
     margin-bottom: 0;
 }
 
+.selected{
+    font-weight: bolder;
+    font-size: 16px;
+}
+
 .opcion_user{
     color: #666666;
     display: block;

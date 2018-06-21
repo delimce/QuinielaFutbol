@@ -45,6 +45,7 @@ class FactoryDao {
     static public function getRanking($ronda) {
 
         return "SELECT
+                u.id,
                 concat(u.nombre,' (',u.contacto,')') as nombre,
                 sum(up.puntaje) as puntos
                 FROM
