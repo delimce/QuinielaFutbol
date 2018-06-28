@@ -7,7 +7,8 @@
  * Time: 9:52 PM
  * To change this template use File | Settings | File Templates.
  */
-class FactoryDao {
+class FactoryDao
+{
 
     /**
      * para hacer login de usuario al iniciar programa
@@ -15,12 +16,14 @@ class FactoryDao {
      * @param type $pass
      * @return type
      */
-    static public function getLoginData($user, $pass) {
+    static public function getLoginData($user, $pass)
+    {
 
         return "select * from usuario where usuario = '$user' and clave = md5('$pass')";
     }
 
-    static public function getMatches($ronda, $usuario) {
+    static public function getMatches($ronda, $usuario)
+    {
 
         return "SELECT
             (select concat(e.nombre,'_',e.bandera) from equipo e where e.id = p.equipo1_id) AS e1,
@@ -42,7 +45,8 @@ class FactoryDao {
             ";
     }
 
-    static public function getRanking($ronda) {
+    static public function getRanking()
+    {
 
         return "SELECT
                 u.id,
@@ -51,14 +55,14 @@ class FactoryDao {
                 FROM
                 usuario AS u
                 INNER JOIN usuario_partido AS up ON up.usuario_id = u.id
-                where up.ronda_id = $ronda 
                 GROUP BY
                 u.id
                 order by puntos desc";
     }
-    
-    
-     static public function getMatchesToday($ronda,$fecha) {
+
+
+    static public function getMatchesToday($ronda, $fecha)
+    {
 
         return "SELECT
                 (select concat(e.nombre,'_',e.bandera) from equipo e where e.id = p.equipo1_id) AS e1,
@@ -76,9 +80,7 @@ class FactoryDao {
                 p.ronda_id = $ronda and p.fecha <= '$fecha'
                 ORDER BY
                 p.fecha ASC ";
-                    }
-    
-    
-    
+    }
+
 
 }

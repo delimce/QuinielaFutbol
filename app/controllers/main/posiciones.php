@@ -14,7 +14,7 @@ function _posiciones() {
       $rondaName = $db->getField("ronda");
       
       
-      $db->setSql(FactoryDao::getRanking($rondaID));
+      $db->setSql(FactoryDao::getRanking());
       $db->executeQuery();
     
 
