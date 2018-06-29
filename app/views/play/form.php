@@ -35,7 +35,7 @@
     <div style="float: left">
         <img style="width: 130px; padding: 20px" onclick="location.replace('<?= Front::myUrl("main/index") ?>')" src="<?= Front::myUrl('images/zabivaka_full.png') ?>"></h1>
     </div>
-    <span style="text-height: 30px"><?= $ronda ?></span><br>
+    <span style="text-height: 30px; font-weight: bolder; font-size: 16px; padding: 20px"><?= $ronda ?></span><br>
     <span style="text-height: 30px">Fecha actual: <b><?= $fecha ?></b></span>
     <form name="form1" id="form1">
         <table align="center" border="0" style="text-align: center; width: 350px">
@@ -86,8 +86,7 @@
             <?php } ?>
             <tr><td colspan='6'>
                     <div style="text-align: center; margin-top: 14px; width: auto">
-                        <input id="submit" type="submit" value="Guardar" style="width:80px;" class="alt_btn">
-                        <button id="registro" style="width:80px;" class="alt_btn">Imprimir</button>
+                        <input id="submit" type="submit" value="Guardar" style="width:120px; font-size: 15px" class="alt_btn">
                     </div>
                     <div id="mensaje"></div>
                 </td>
