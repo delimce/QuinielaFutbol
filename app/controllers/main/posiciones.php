@@ -4,14 +4,14 @@ function _posiciones() {
 
     Security::sessionActive();
 
-         $rondaID = Security::getSessionVar("RONDA");
+         $roundID = Security::getSessionVar("RONDA");
           
      
       $db = new ObjectDB();
       
       $db->setTable("ronda");
-      $db->getTableFields("ronda", "id = $rondaID");
-      $rondaName = $db->getField("ronda");
+      $db->getTableFields("ronda", "id = $roundID");
+      $roundName = $db->getField("ronda");
       
       
       $db->setSql(FactoryDao::getRanking());
@@ -19,7 +19,7 @@ function _posiciones() {
     
 
     $data['siteTitle'] = Security::getSessionVar("TITTLE").' Posiciones de la Polla';
-    $data['body'][] = View::do_fetch(VIEW_PATH . 'main/ranking.php', array("lista" => $db,"ronda"=>$rondaName));
+    $data['body'][] = View::do_fetch(VIEW_PATH . 'main/ranking.php', array("lista" => $db,"ronda"=>$roundName));
     View::do_dump(LAYOUT_PATH . 'layout.php', $data);
     
     $db->close();

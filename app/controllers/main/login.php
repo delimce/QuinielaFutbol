@@ -9,7 +9,6 @@ function _login() {
         $db = new ObjectDB();
 
         @$pass = Form::getVar("clave", $_POST);
-
         @$db->setSql(FactoryDao::getLoginData($user, $pass));
         @$db->getResultFields();
 
@@ -21,28 +20,26 @@ function _login() {
             Security::setUserProfileName($db->getField("profile"));
             $id = $db->getField("id");
 
-            $db->begin_transacction();
+            $db->begin_transaction();
    
             /////////////
             ////registro de acceso
             $db->setTable("accesos_log");
             $db->setField("user", Security::getUserID());
             $db->setField("perfil", Security::getUserProfileName());
-            $fecha = Calendar::getDatabaseDateTime();
-            $db->setField("fecha", $fecha);
-            $cliente = $_SERVER['HTTP_USER_AGENT'];
-            $db->setField("cliente_info", $cliente);
+            $date = Calendar::getDatabaseDateTime();
+            $db->setField("fecha", $date);
+            $visitor = $_SERVER['HTTP_USER_AGENT'];
+            $db->setField("cliente_info", $visitor);
             $db->insertInTo();
 
-            $db->commit_transacction();
-
+            $db->commit_transaction();
             echo $id;
 
             //////
         } else {
             echo 0;
         }
-
 
         $db->close(); //cerrando conexion
     } else { ///no se ha logueado

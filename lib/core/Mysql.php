@@ -144,26 +144,25 @@ class Mysql implements TemplateDB {
 
     
     
-    public function begin_transacction() {
-
-        ////iniciando la transaccion
-        mysqli_autocommit($this->dbc, FALSE);
+    public function begin_transaction() {
+        mysqli_autocommit($this->dbc, false);
+        mysqli_begin_transaction($this->getDbc());
     }
 
-    public function commit_transacction($result = true) {
-
-        if ($result)
-            mysqli_commit($this->dbc); else
-            mysqli_rollback($this->dbc); ////finalizando la transaccion
-        mysqli_autocommit($this->dbc, TRUE);
+    public function commit_transaction($result = true) {
+        if($result){
+            mysqli_commit($this->dbc);
+        }else{
+            mysqli_rollback($this->dbc); 
+            mysqli_autocommit($this->dbc, true);
+        }
     }
     
     
     
-    /*
+    /**
      * metodo para transformar en atributos los campos regresados de una consulta
      */
-
     public function rowFields(){
         
         return mysqli_fetch_object($this->result);

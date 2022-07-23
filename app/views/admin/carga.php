@@ -1,5 +1,5 @@
 <script>
-    function aplicarGame(partido, result1, result2) {
+    function aplicarGame(match, result1, result2) {
 
         var r1 = $("#" + result1).val();
         var r2 = $("#" + result2).val();
@@ -7,9 +7,9 @@
             type: "POST",
             url: "<?= Front::myUrl('admin/aplicar'); ?>",
             cache: false,
-            data: 'idp=' + partido + '&r1=' + r1 + '&r2=' + r2,
+            data: 'idp=' + match + '&r1=' + r1 + '&r2=' + r2,
             success: function(data) {
-                $("#" + partido + "mensaje").html('<b>Aplicado!</b>');
+                $("#" + match + "mensaje").html('<b>Aplicado!</b>');
             }
         });
 

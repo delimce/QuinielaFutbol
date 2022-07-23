@@ -1,14 +1,9 @@
 <script>
     $(document).ready(function() {
 
-
         $("#submit").click(function() {
-
             $("#mensaje").html('&nbsp');
-
-
             var formData = $("#form1").serialize();
-
             $.ajax({
                 type: "POST",
                 url: "<?= Front::myUrl('juego/save'); ?>",
@@ -21,14 +16,9 @@
 
             return false;
         });
-
-
-
-
     });
 
 </script>
-
 
 <article class="module width_full">
 
@@ -60,8 +50,6 @@
                     $fechatemp = $fecha2;
                 }
                 ?>
-
-
                 <tr>
                     <td style="text-align: right"><?= utf8_encode($nombre1) ?></td>
                     <td><img src="<?= Front::myUrl('images/band/' . $bandera1) ?>"></td>

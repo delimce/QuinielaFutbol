@@ -5,8 +5,8 @@ Aplicacion para jugar quinielas de futbol elaborada en PHP con MYSQL
 
 <b>Instrucciones para la Instalación</b>
 
-Por defecto para este momento la aplicación esta configurada para el mundial
-de futbol actual (Rusia 2018) para la rápida instalación manual se recomienda
+Por defecto, la aplicación esta configurada para el mundial
+de futbol actual (Qatar 2022) para la rápida instalación manual se recomienda
 lo siguiente:
 
 1. asegurate que el módulo de apache2 mod_rewrite esta activo, para ello debes hacer lo siguiente:

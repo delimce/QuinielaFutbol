@@ -3,34 +3,32 @@
 function _polla() {
 
     Security::sessionActive();
-
-    $rondaID = Security::getSessionVar("RONDA");
-
+    $roundID = Security::getSessionVar("RONDA");
     $db = new ObjectDB();
 
     $db->setTable("ronda");
-    $db->getTableFields("ronda", "id = $rondaID");
-    $rondaName = $db->getField("ronda");
+    $db->getTableFields("ronda", "id = $roundID");
+    $roundName = $db->getField("ronda");
 
-    $fechaActual = date("d/m h:i:A");
+    $currentDate = date("d/m h:i:A");
 
-    $db->setSql(FactoryDao::getMatches($rondaID, Security::getUserID()));
+    $db->setSql(FactoryDao::getMatches($roundID, Security::getUserID()));
     $db->executeQuery();
 
     $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Mi Quiniela';
-    $data['body'][] = View::do_fetch(VIEW_PATH . 'play/form.php', array("partidos" => $db, "ronda" => $rondaName, "fecha" => $fechaActual));
+    $data['body'][] = View::do_fetch(VIEW_PATH . 'play/form.php', array("partidos" => $db, "ronda" => $roundName, "fecha" => $currentDate));
     View::do_dump(LAYOUT_PATH . 'layout.php', $data);
 
     $db->close();
 }
 
-function diffTime($partido) {
+function diffTime($match) {
 
-    $date1 = strtotime($partido);
+    $date1 = strtotime($match);
     return intval(floor(($date1 - time()) / 3600));
 }
 
 //valida si hay tiempo para apostar (minimo 3 horas antes de empezar)
-function isInTime($partido) {
-    return (diffTime($partido) >= 1) ? true : false;
+function isInTime($match) {
+    return (diffTime($match) >= 1) ? true : false;
 }

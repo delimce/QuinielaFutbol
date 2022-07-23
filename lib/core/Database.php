@@ -7,7 +7,8 @@
  * Time: 10:49 AM
  * To change this template use File | Settings | File Templates.
  */
-Abstract class Database {
+abstract class Database
+{
     /**
      * variables para la conexion
      */
@@ -22,7 +23,8 @@ Abstract class Database {
      * constructor de la clase
      */
 
-    function __construct() {
+    function __construct()
+    {
         $argv = func_get_args();
         switch (func_num_args()) {
             default:
@@ -30,12 +32,12 @@ Abstract class Database {
                 self::__construct1(); ///datasource por defecto
                 break;
             case 1:
-                if($argv[0]!=null){
+                if ($argv[0] != null) {
                     self::__construct2($argv[0]); ////data source seleccionado
-                }  else {
-                   self::__construct3(); ///sin conexion a base de datos
-                }                
-             
+                } else {
+                    self::__construct3(); ///sin conexion a base de datos
+                }
+
                 break;
         }
     }
@@ -44,7 +46,8 @@ Abstract class Database {
      * constructor en caso de trabajar con el dataSource por defecto
      */
 
-    function __construct1() {
+    function __construct1()
+    {
 
 
         $datasource = AV_defaultDs; ///dataSource por efecto
@@ -55,7 +58,8 @@ Abstract class Database {
      * constructor en caso de enviar el dataSource o no decidir conectarse
      */
 
-    function __construct2($datasource) {
+    function __construct2($datasource)
+    {
 
         global $dataSources;
         if (!array_key_exists($datasource, $dataSources))
@@ -65,15 +69,14 @@ Abstract class Database {
             $this->getConnect($datasource);
         }
     }
-    
-    
+
+
     /**
      * sin conexion a base de datos
      */
 
-    function __construct3(){
-        
-        
+    function __construct3()
+    {
     }
 
 
@@ -85,19 +88,20 @@ Abstract class Database {
      * metodo usado para la conexion (sin importar el constructor usado)
      */
 
-    private function getConnect($datasource) {
+    private function getConnect($datasource)
+    {
 
 
         global $dataSources;
 
         try { ///en caso de que el server no muestre los errores
-            $this->dbms = strtolower($dataSources[$datasource]["dbms"]);
-            $this->host = $dataSources[$datasource]["host"];
-            $this->port = $dataSources[$datasource]["port"];
-            $this->schema = $dataSources[$datasource]["schema"];
+            $this->dbms     = strtolower($dataSources[$datasource]["dbms"]);
+            $this->host     = $dataSources[$datasource]["host"];
+            $this->port     = $dataSources[$datasource]["port"] ?? "3306";
+            $this->schema   = $dataSources[$datasource]["schema"] ?? "";
             $this->database = $dataSources[$datasource]["database"];
-            $this->user = $dataSources[$datasource]["user"];
-            $this->pwd = ($dataSources[$datasource]["encrypt"])?convert_uudecode($dataSources[$datasource]["pwd"]):$dataSources[$datasource]["pwd"];  ////contiene cifrado
+            $this->user     = $dataSources[$datasource]["user"];
+            $this->pwd      = (!empty($dataSources[$datasource]["encrypt"])) ? convert_uudecode($dataSources[$datasource]["pwd"]) : $dataSources[$datasource]["pwd"];  ////contiene cifrado
             //   metodo que selecciona la clase para interactuar con la base de datos
             $this->setDb($this->dbms);
             $this->getDb()->connect($this->host, $this->port, $this->user, $this->pwd, $this->schema, $this->database);
@@ -110,13 +114,15 @@ Abstract class Database {
      * metodo para seleccionar la clase del vendor para manejar la base de datos segun el motor
      */
 
-    private function setDb($dbms) {
+    private function setDb($dbms)
+    {
         if ($dbms == "mysql") {
             $this->db = new Mysql();
         }
     }
 
-    private function getDb() {
+    private function getDb()
+    {
         return $this->db;
     }
 
@@ -124,7 +130,8 @@ Abstract class Database {
      * libera el objeto resultset
      */
 
-    public function freeResult() {
+    public function freeResult()
+    {
 
         try {
             $this->getDb()->freeResult();
@@ -137,7 +144,8 @@ Abstract class Database {
      * metodo que cierra una conexion de base de datos
      */
 
-    public function close() {
+    public function close()
+    {
 
         try {
             $this->getDb()->close();
@@ -150,7 +158,8 @@ Abstract class Database {
      * libera el objeto resultset y cierra la conexion
      */
 
-    public function freeAndClose() {
+    public function freeAndClose()
+    {
 
         $this->getDb()->freeResult();
         $this->getDb()->close();
@@ -160,7 +169,8 @@ Abstract class Database {
      * metodo para un query simple
      */
 
-    public function simpleQuery($sql) {
+    public function simpleQuery($sql)
+    {
         try {
             $this->getDb()->simpleQuery($sql);
         } catch (ErrorException $e) {
@@ -172,7 +182,8 @@ Abstract class Database {
      * metodo para preparar Statement
      */
 
-    public function prepareStmt($sql) {
+    public function prepareStmt($sql)
+    {
 
         try {
             $this->getDb()->prepareQuery($sql);
@@ -185,7 +196,8 @@ Abstract class Database {
      * metodo para bindear los parametros del statement
      */
 
-    public function setParam($types, $params) {
+    public function setParam($types, $params)
+    {
 
         try {
             $this->getDb()->setParam($types, $params);
@@ -198,7 +210,8 @@ Abstract class Database {
      * metodo que ejecuta el query prepareStatement
      */
 
-    protected function execute() {
+    protected function execute()
+    {
 
         try {
             $this->getDb()->execute();
@@ -207,7 +220,8 @@ Abstract class Database {
         }
     }
 
-    public function getResultSet() {
+    public function getResultSet()
+    {
 
         return $this->getDb()->getResult();
     }
@@ -216,7 +230,8 @@ Abstract class Database {
      * para traer el nombre de los campos del registro
      */
 
-    public function getFieldsNames() {
+    public function getFieldsNames()
+    {
 
         return $this->getDb()->getResultFields();
     }
@@ -225,7 +240,8 @@ Abstract class Database {
      * para traer el numero del campo devuelto
      */
 
-    public function getRegNumber() {
+    public function getRegNumber()
+    {
         return $this->getDb()->getRegNumber();
     }
 
@@ -233,11 +249,13 @@ Abstract class Database {
      * para traer el nombre del campo devuelto
      */
 
-    public function getRegName() {
+    public function getRegName()
+    {
         return $this->getDb()->getRegName();
     }
 
-    public function lastIdInserted() {
+    public function lastIdInserted()
+    {
 
         $this->getDb()->lastIdInserted();
         return $this->getDb()->getNewId();
@@ -247,17 +265,19 @@ Abstract class Database {
      * traer numero de registros
      */
 
-    public function getNumRowsRequested() {
+    public function getNumRowsRequested()
+    {
 
 
         return $this->getDb()->getNreg();
     }
-    
+
     /**
      * un sinonimo de getNumRowsRequested() 
      */
-    
-    public function getNumRows(){
+
+    public function getNumRows()
+    {
         return $this->getNumRowsRequested();
     }
 
@@ -267,7 +287,8 @@ Abstract class Database {
      * escribe la info del server
      */
 
-    public function getServerInfo() {
+    public function getServerInfo()
+    {
 
 
         try {
@@ -281,7 +302,8 @@ Abstract class Database {
      * escapa los caracteres especiales
      */
 
-    public function escapeString($value) {
+    public function escapeString($value)
+    {
 
         try {
             return $this->getDb()->escapeString($value);
@@ -294,26 +316,28 @@ Abstract class Database {
      * metodos para las transacciones
      */
 
-    public function begin_transacction() {
-        $this->getDb()->begin_transacction();
+    public function begin_transaction()
+    {
+        $this->getDb()->begin_transaction();
     }
 
-    public function commit_transacction() {
-        $this->getDb()->commit_transacction($result = true);
+    public function commit_transaction()
+    {
+        $this->getDb()->commit_transaction($result = true);
     }
-    
-    
+
+
     /**
      * metodo que devuelve los atributos del row  con los nombres de los campos del query
      */
-    
-    public function getRowFields(){
-        
-        if(method_exists($this->getDb(),'rowFields'))
-            
-            return $this->getDb()->rowFields();
-            
-        else die("error: Method 'getRowFields' is not implemented for: ".$this->dbms );
-    }
 
+    public function getRowFields()
+    {
+
+        if (method_exists($this->getDb(), 'rowFields'))
+
+            return $this->getDb()->rowFields();
+
+        else die("error: Method 'getRowFields' is not implemented for: " . $this->dbms);
+    }
 }
