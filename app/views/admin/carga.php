@@ -12,8 +12,6 @@
                 $("#" + match + "mensaje").html('<b>Aplicado!</b>');
             }
         });
-
-
     }
 
 </script>
@@ -51,13 +49,13 @@
             ?>
 
             <tr>
-                <td style="text-align: right"><?= utf8_encode($nombre1) ?></td>
+                <td style="text-align: right"><?= $nombre1 ?></td>
                 <td><img src="<?= Front::myUrl('images/band/' . $bandera1) ?>"></td>
                 <td><input type="number" min="0" max="15" id="<?= $row->idp . "_m1" ?>" value="<?= $row->marcador1 ?>" style="width: 35px; text-align: center"></td>
                 <td><b>Vs</b></td>
                 <td><input type="number" min="0" max="15" id="<?= $row->idp . "_m2" ?>" value="<?= $row->marcador2 ?>" style="width: 35px; text-align: center"></td>
                 <td><img src="<?= Front::myUrl('images/band/' . $bandera2) ?>"></td>
-                <td style="text-align: left"><?= utf8_encode($nombre2) ?></td>
+                <td style="text-align: left"><?= $nombre2 ?></td>
                 <td style="text-align: left">
                     <input id="<?= 'b1' . $row->idp ?>" type="submit" value="Aplicar" onclick="aplicarGame(<?= $row->idp ?>, '<?= $row->idp . "_m1" ?>', '<?= $row->idp . "_m2" ?>')" class="alt_btn">
                 </td>
