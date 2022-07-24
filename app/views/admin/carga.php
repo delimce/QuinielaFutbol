@@ -25,7 +25,6 @@
     </div>
 
     <div style="padding: 11px; font-size: 23px"><b>Nota:</b>Para poder cargar los resultados Reales, debe haber pasado la fecha del partido</div>
-    <span style="text-height: 30px"><?= $ronda ?></span><br>
     <span style="text-height: 30px">Fecha actual: <b><?= $fecha ?></b></span>
 
     <table align="center" border="0" style="text-align: center; width: 400px; height: 120px">

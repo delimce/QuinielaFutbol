@@ -32,35 +32,4 @@ class BusinessMenu {
         }
     }
 
-    /*
-     * metodo que despliega el menu
-     * idCurrent: id del modulo seleccionado actualmente
-     */
-
-    public function showMenu() {
-
-        /////mostrando el menu
-        $db2 = new ObjectDB();
-        $db2->setSql(FactoryDao::getModuleList(Security::getUserProfile()));
-        $db2->executeQuery();
-
-        $class = (empty($this->idModule)) ? 'class="current"' : '';
-        $menu = '<li><a href="' . Front::myUrl('main/index') . '"  ' . $class . '>Inicio</a></li>';
-
-        while ($row = $db2->getRegName()) {
-
-            $class = ($this->idModule == $row['id']) ? 'class="current"' : '';
-            $current = '/' . $row['id'];
-
-            $menu.= '<li><a href="' . Front::myUrl($row['url'] . $current) . '"  ' . $class . '>' . $row['nombre'] . '</a></li>';
-        }
-
-        $db2->freeResult();
-        $db2->close();
-
-        return $menu;
-    }
-
 }
-
-?>

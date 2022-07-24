@@ -33,8 +33,6 @@
 
     <body>
         <header id="header">
-
-
             <div class="myUser">
                 <span style="font-weight: bold">
                     Usuario:&nbsp;<?= Security::getUserName() ?>
@@ -43,17 +41,11 @@
                     <a href="<?= Front::myUrl('main/logout') ?>">Cerrar</a>
                 </span>
             </div>
-
         </header> <!-- end of header bar -->
 
-      
         <section>
-
             <?php echo (isset($body) && is_array($body)) ? implode("\n", $body) : '' ?>
-
         </section>
-
-
     </body>
 
 

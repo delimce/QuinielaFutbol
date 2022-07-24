@@ -46,9 +46,9 @@ class Calendar {
         return date("Y-m-d H:i:s");
     }
 
+    
     /**
-     * escribe la fecha en el formato deseado (caso basededatos)
-     * @param type $datetime
+     * @param string $datetime
      * @return string
      */
     public function datetime($datetime) {

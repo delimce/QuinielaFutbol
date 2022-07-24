@@ -6,7 +6,6 @@ function _carga() {
      $roundID = Security::getSessionVar("RONDA");
      
      $date = Calendar::getDatabaseDateTime();
-     //$date = '2014-06-12 23:59';
      $currentDate = date("d/m h:i:A");
     
      $db = new ObjectDB();

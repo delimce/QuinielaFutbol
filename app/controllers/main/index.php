@@ -4,6 +4,15 @@ function _index()
 {
     Security::sessionActive();
     $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Home';
-    $data['body'][] = View::do_fetch(VIEW_PATH . 'main/index_view.php');
+
+    $roundID = Security::getSessionVar("RONDA");
+
+    $db = new ObjectDB();
+    $db->setTable("ronda");
+    $db->getTableFields("ronda", "id = $roundID");
+    $roundName = $db->getField("ronda");
+    
+    $data['body'][] = View::do_fetch(VIEW_PATH . 'main/index_view.php', array("ronda" => $roundName));
     View::do_dump(LAYOUT_PATH . 'layout.php', $data);
+    $db->close();
 }
