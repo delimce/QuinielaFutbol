@@ -2,7 +2,7 @@
     <div style="width: 90%">
         <div style="float: left">
             <img style="width: 130px; padding: 20px" onclick="location.replace('<?= Front::myUrl("main/index") ?>')"
-                 src="<?= Front::myUrl('images/zabivaka_full.png') ?>"></h1>
+                 src="<?= Front::myUrl('images/laeeb_full.png') ?>"></h1>
         </div>
         <div style="width: 80%; padding: 30px">
             <ul>
