@@ -12,7 +12,7 @@
  */
 
 define("APP_PATH", 'app/'); //with trailing slash pls
-define("WEB_FOLDER", '/russia2018/'); //CARPETA CONTENEDORA
+define("WEB_FOLDER", '/'); //CARPETA CONTENEDORA
 //===============================================
 // Other Settings
 //===============================================
@@ -21,7 +21,7 @@ define("VIEW_PATH", 'app/views/'); //with trailing slash pls
 define("LAYOUT_PATH", 'app/layouts/'); //with trailing slash pls
 
 define("AV_defaultTimeZone","America/Caracas"); //////zona horaria por defecto para la aplicacion
-define("AV_defaultDs", "russia"); /////Data source por defecto. segun los data sources creados en el archivo dataSources.php
+define("AV_defaultDs", "qatar"); /////Data source por defecto. segun los data sources creados en el archivo dataSources.php
 define("AV_noDsFound", "DataSource doesn't exist!");
 
 ///includes (No cambiar)

@@ -73,7 +73,7 @@
     <article class="module width_full">
 
 
-        <h1><img src="<?= Front::myUrl('images/wc2018.png') ?>"></h1>
+        <h1><img src="<?= Front::myUrl('images/wc2022.png') ?>"></h1>
         <div class="module_content">
             <form name="form1" id="form1">
                 <fieldset>
