@@ -476,13 +476,13 @@ section#main {
 }
 
 .module footer {
+    display:inline-block;
+    margin-top: 10px;
+    margin-bottom: auto;
     height: 32px;
     width: 100%;
     border-top: 1px solid #9CA1B0;
     background: #F1F1F4 url(../images/template/module_footer_bg.png) repeat-x;
-    -webkit-border-bottom-left-radius: 5px; -webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px;
-    -webkit-border-bottom-left-radius: 5px; -webkit-border-bottom-right-radius: 5px;
 }
 
 .module_content {
