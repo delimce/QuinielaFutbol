@@ -329,15 +329,16 @@ class ObjectDB extends Database {
     /**
      * funcion que hace el query de los campos de la tabla seteada, devuelve el resulset asociado.
      */
-    public function getTableAllRecords($fiels, $where = false, $order = false) {
+    public function getTableAllRecords($fields, $where = false, $order = false) {
 
-        $this->sql = "select $fiels from ";
+        $this->sql = "select $fields from ";
         $this->concatSql($this->getTable());
-        if ($where)
+        if ($where){
             $this->concatSql(" where " . $where);
-        if ($order)
+        }
+        if ($order){
             $this->concatSql(" ORDER BY " . $order);
-
+        }
         $this->executeQuery();
     }
 

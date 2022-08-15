@@ -1,9 +1,9 @@
 <?php
 
-function _login() {
-
+function _login()
+{
     $user = Form::getVar("user", $_POST);
-    ////logueandose
+
     if (!empty($user)) {
 
         $db = new ObjectDB();
@@ -12,6 +12,7 @@ function _login() {
         @$db->setSql(FactoryDao::getLoginData($user, $pass));
         @$db->getResultFields();
 
+        $result = 0;
         if ($db->getNumRows() > 0) {
 
             ////guardando variables de sesion 
@@ -21,9 +22,6 @@ function _login() {
             $id = $db->getField("id");
 
             $db->begin_transaction();
-   
-            /////////////
-            ////registro de acceso
             $db->setTable("accesos_log");
             $db->setField("user", Security::getUserID());
             $db->setField("perfil", Security::getUserProfileName());
@@ -34,17 +32,12 @@ function _login() {
             $db->insertInTo();
 
             $db->commit_transaction();
-            echo $id;
-
-            //////
-        } else {
-            echo 0;
+            $result = $id;
         }
 
+        echo $result;
         $db->close(); //cerrando conexion
     } else { ///no se ha logueado
-        $form = new Form();
-
         $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Login';
         $data['body'][] = View::do_fetch(VIEW_PATH . 'main/login_form.php');
         View::do_dump(LAYOUT_PATH . 'loginLayout.php', $data);
