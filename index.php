@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by delimce
  * User: luis
@@ -6,7 +7,13 @@
  * Time: 6:39 PM
  * To change this template use File | Settings | File Templates.
  */
-include_once 'config/setup.php';
+
+include_once __DIR__ . '/src/Base/setup.php';
+
+include __DIR__ . '/vendor/autoload.php';
+
+use App\Libs\Security;
+use App\Base\Controller;
 
 Security::initSession();
 
@@ -19,10 +26,9 @@ Security::setSessionVar("TITTLE", "Quiniela Qatar 2022 ");
  * cambiar el id de la ronda en que se encuentre la quiniela para la carga de los partidos.
  * cambiar la session por el id de la ronda que se desee jugar;
  */
-Security::setSessionVar("RONDA",1); ///cambiar por id de la ronda que se quiera jugar
+Security::setSessionVar("RONDA", 1); ///cambiar por id de la ronda que se quiera jugar
 
 //===============================================
 // Start the controller
 //===============================================
 $controller = new Controller(APP_PATH . 'controllers/', WEB_FOLDER, 'main', 'index');
-
