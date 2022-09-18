@@ -13,10 +13,10 @@ abstract class BaseView
 
   function __construct($file = '', $vars = '')
   {
-    if ($file){
+    if ($file) {
       $this->file = $file;
     }
-    if (is_array($vars)){
+    if (is_array($vars)) {
       $this->vars = $vars;
     }
     return $this;
@@ -41,7 +41,7 @@ abstract class BaseView
 
   function fetch($vars = '')
   {
-    if (is_array($vars)){
+    if (is_array($vars)) {
       $this->vars = array_merge($this->vars, $vars);
     }
     extract($this->vars);

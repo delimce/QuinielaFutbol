@@ -1,7 +1,7 @@
 {
     "name": "delimce/quiniela",
     "version": "1.0.0",
-    "description": "Soccer pools gaming application",
+    "description": "Gaming web application for soccer pools",
     "autoload": {
         "psr-4": {
             "App\\": "src/"
@@ -14,5 +14,11 @@
         }
     ],
     "minimum-stability": "RC",
-    "require": {}
+    "require": {
+        "monolog/monolog": "^2.8",
+        "components/jquery": "^3.6",
+        "picocss/pico": "^1.5",
+        "vlucas/phpdotenv": "^5.4",
+        "phpunit/phpunit": "^9.5"
+    }
 }
