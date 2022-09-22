@@ -6,6 +6,7 @@ use App\Libs\Calendar;
 use App\Libs\ObjectDB;
 use App\Libs\Security;
 use App\Libs\FactoryDao;
+use App\Libs\Logger;
 
 function _login()
 {
@@ -21,7 +22,7 @@ function _login()
         $result = 0;
         if ($db->getNumRows() > 0) {
 
-            ////guardando variables de sesion 
+            # init session vars
             Security::setUserID($db->getField("id"));
             Security::setUserName($db->getField("nombre"));
             Security::setUserProfileName($db->getField("profile"));
@@ -39,6 +40,11 @@ function _login()
 
             $db->commit_transaction();
             $result = $id;
+
+            # init session logged
+            $logger = new Logger();
+            $textLogged = sprintf("User %s init session", Security::getUserName());
+            $logger->info($textLogged);
         }
 
         echo $result;

@@ -27,6 +27,3 @@ define("WEB_DOMAIN", 'http://zserver'); //with http:// and NO trailing slash pls
 define("AV_defaultTimeZone", "America/Caracas"); //////zona horaria por defecto para la aplicacion
 define("AV_defaultDs", "qatar"); /////Data source por defecto. segun los data sources creados en el archivo dataSources.php
 define("AV_noDsFound", "DataSource doesn't exist!");
-
-///includes (No cambiar)
-include_once(dirname(__FILE__) . "/" . "dataSources.php");
