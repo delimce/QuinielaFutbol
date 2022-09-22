@@ -20,9 +20,6 @@ use App\Base\Controller;
 
 Security::initSession();
 
-///zona horaria para la aplicacion
-date_default_timezone_set(AV_defaultTimeZone);
-
 /////variable de titulo del sitio
 Security::setSessionVar("TITTLE", "Quiniela Qatar 2022 ");
 /***********************************
