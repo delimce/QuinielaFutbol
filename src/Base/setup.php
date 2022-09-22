@@ -30,5 +30,3 @@ define("AV_noDsFound", "DataSource doesn't exist!");
 
 ///includes (No cambiar)
 include_once(dirname(__FILE__) . "/" . "dataSources.php");
-///class library
-include_once(dirname(__FILE__) . "/" . "includes.php");

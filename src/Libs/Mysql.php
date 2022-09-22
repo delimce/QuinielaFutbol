@@ -52,8 +52,7 @@ class Mysql implements TemplateDB {
     }
 
     public function connect($host, $port, $user, $pwd, $schema, $database) {
-
-        $this->dbc = mysqli_connect($host, $user, $pwd, $database, $port) or die('<font color=#FF0000> conection failed: </font>' . mysqli_connect_error());
+       $this->dbc = mysqli_connect($host, $user, $pwd, $database, $port) or die('<font color=#FF0000> connection failed: </font>' . mysqli_connect_error());
     }
 
     public function close() {
@@ -69,29 +68,23 @@ class Mysql implements TemplateDB {
     //devuelve un arreglo con el nombre de los campos consultados enpezando desde la pos 0
 
     public function getResultFields() {
-
         $x = 0;
-
         while ($finfo = mysqli_fetch_field($this->result)) {
-
             $names[$x] = $finfo->name;
             $x++;
         }
-
         return $names;
     }
 
     ///funcion para obtener el valor del registro en tipo numero
 
     public function getRegNumber() {
-
         return @mysqli_fetch_row($this->result);
     }
 
     ////funcion para obtener el valor del registro en tipo cadena o nombre
 
     public function getRegName() {
-
         return @mysqli_fetch_assoc($this->result);
     }
 
@@ -105,7 +98,6 @@ class Mysql implements TemplateDB {
 
     public function execute() {
         mysqli_stmt_execute($this->getStmt());
-
         mysqli_stmt_close($this->getStmt()); // CLOSE $stmt
     }
 

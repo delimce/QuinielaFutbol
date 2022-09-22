@@ -8,9 +8,12 @@
  * To change this template use File | Settings | File Templates.
  */
 
+include __DIR__ . '/vendor/autoload.php';
 include_once __DIR__ . '/src/Base/setup.php';
 
-include __DIR__ . '/vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 
 use App\Libs\Security;
 use App\Base\Controller;

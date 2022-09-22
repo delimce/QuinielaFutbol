@@ -29,21 +29,8 @@ abstract class Database
 
     function __construct()
     {
-        $argv = func_get_args();
-        switch (func_num_args()) {
-            default:
-            case 0:
-                self::__construct1(); ///datasource por defecto
-                break;
-            case 1:
-                if ($argv[0] != null) {
-                    self::__construct2($argv[0]); ////data source seleccionado
-                } else {
-                    self::__construct3(); ///sin conexion a base de datos
-                }
-
-                break;
-        }
+        # using file .env
+        self::__construct3(); 
     }
 
     /**
@@ -52,8 +39,6 @@ abstract class Database
 
     function __construct1()
     {
-
-
         $datasource = AV_defaultDs; ///dataSource por efecto
         $this->getConnect($datasource);
     }
@@ -81,31 +66,34 @@ abstract class Database
 
     function __construct3()
     {
+        $newDataSource = [];
+        $newDataSource["dbms"]      = "Mysql";
+        $newDataSource["host"]      = $_ENV['DB_HOST'];
+        $newDataSource["port"]      = $_ENV['DB_PORT'];
+        $newDataSource["database"]  = $_ENV['DB_NAME'];
+        $newDataSource["user"]      = $_ENV['DB_USER'];
+        $newDataSource["pass"]      = $_ENV['DB_PASS'];
+        $this->getConnect($newDataSource);
     }
 
 
 
 
-
-
     /**
-     * metodo usado para la conexion (sin importar el constructor usado)
+     * @param mixed $datasource
+     * 
+     * @return [type]
      */
-
     private function getConnect($datasource)
     {
-
-
-        global $dataSources;
-
         try { ///en caso de que el server no muestre los errores
-            $this->dbms     = strtolower($dataSources[$datasource]["dbms"]);
-            $this->host     = $dataSources[$datasource]["host"];
-            $this->port     = $dataSources[$datasource]["port"] ?? "3306";
-            $this->schema   = $dataSources[$datasource]["schema"] ?? "";
-            $this->database = $dataSources[$datasource]["database"];
-            $this->user     = $dataSources[$datasource]["user"];
-            $this->pwd      = (!empty($dataSources[$datasource]["encrypt"])) ? convert_uudecode($dataSources[$datasource]["pwd"]) : $dataSources[$datasource]["pwd"];  ////contiene cifrado
+            $this->dbms     = strtolower($datasource["dbms"]);
+            $this->host     = $datasource["host"];
+            $this->port     = $datasource["port"] ?? "3306";
+            $this->schema   = $datasource["schema"] ?? "";
+            $this->database = $datasource["database"];
+            $this->user     = $datasource["user"];
+            $this->pwd      = $datasource["pass"];
             //   metodo que selecciona la clase para interactuar con la base de datos
             $this->setDb($this->dbms);
             $this->getDb()->connect($this->host, $this->port, $this->user, $this->pwd, $this->schema, $this->database);
