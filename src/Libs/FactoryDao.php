@@ -62,7 +62,6 @@ class FactoryDao
                 order by puntos desc";
     }
 
-
     static public function getMatchesToday($ronda, $fecha)
     {
 
@@ -83,6 +82,4 @@ class FactoryDao
                 ORDER BY
                 p.fecha ASC ";
     }
-
-
 }

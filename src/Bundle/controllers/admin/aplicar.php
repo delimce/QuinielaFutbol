@@ -4,21 +4,25 @@ use App\Libs\Form;
 use App\Libs\ObjectDB;
 use App\Libs\Security;
 
-function _aplicar() {
+const RESULT_WINNER = 3;
+const RESULT_TIE = 1;
+const RESULT_OK = 5;
 
+function _aplicar()
+{
     Security::hasPermissionTo("admin");
 
     $match = Form::getVar("idp", $_POST); ///id del partido
-    $r1 = Form::getVar("r1", $_POST); ///resultado equipo 1
-    $r2 = Form::getVar("r2", $_POST); //resultado equipo 2
+    $r1    = Form::getVar("r1", $_POST); ///resultado equipo 1
+    $r2    = Form::getVar("r2", $_POST); //resultado equipo 2
 
     $db = new ObjectDB();
 
     $db->begin_transaction();
     /////edicion del partido original
     $db->setTable("partido");
-    $db->setField("marcador1", $r1);
-    $db->setField("marcador2", $r2);
+    $db->setField("marcador1", intval($r1));
+    $db->setField("marcador2", intval($r2));
     $db->setField("estatus", 1);
     $db->updateWhere("id = $match");
 
@@ -40,15 +44,15 @@ function _aplicar() {
 }
 
 ///me dice si se ha llenado el campo del resultado
-function calcScore($r1, $r2, $u1, $u2) {
+function calcScore($r1, $r2, $u1, $u2)
+{
     $points = 0;
     if ($r1 == $u1 && $r2 == $u2) { ////acierto resultado exacto
-        $points = 5;
-    } else if ((($r1 > $r2) && ($u1 > $u2)) or ( ($r1 < $r2) && ($u1 < $u2))) { ///acierto ganador
-        $points = 3;
+        $points = RESULT_OK;
+    } else if ((($r1 > $r2) && ($u1 > $u2)) or (($r1 < $r2) && ($u1 < $u2))) { ///acierto ganador
+        $points = RESULT_WINNER;
     } else if (($r1 == $r2) && ($u1 == $u2)) { ///acierto empate
-        $points = 1;
+        $points = RESULT_TIE;
     }
-
     return $points;
 }

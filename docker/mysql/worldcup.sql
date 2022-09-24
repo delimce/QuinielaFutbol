@@ -52,7 +52,7 @@ CREATE TABLE `equipo` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `equipo` (`id`, `nombre`, `bandera`) VALUES (1, 'Qatar', 'qat.png');
-INSERT INTO `equipo` (`id`, `nombre`, `bandera`) VALUES (2, 'Ecuador.', 'ecu.png');
+INSERT INTO `equipo` (`id`, `nombre`, `bandera`) VALUES (2, 'Ecuador', 'ecu.png');
 INSERT INTO `equipo` (`id`, `nombre`, `bandera`) VALUES (3, 'Senegal', 'sen.png');
 INSERT INTO `equipo` (`id`, `nombre`, `bandera`) VALUES (4, 'Paises Bajos', 'net.png');
 INSERT INTO `equipo` (`id`, `nombre`, `bandera`) VALUES (5, 'Inglaterra', 'ing.png');

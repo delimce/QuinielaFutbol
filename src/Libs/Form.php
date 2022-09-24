@@ -17,17 +17,14 @@ class Form
      */
     public static function getVar($var, $only = "", $secure = true)
     {
-
-        /////////////////////validar el only
         if (!$only) {
-
             @$var2 = $_REQUEST[$var];
         } else {
-
-            if ($only == $_GET)
+            if ($only == $_GET) {
                 @$var2 = $_GET[$var];
-            else
+            } else {
                 @$var2 = $_POST[$var];
+            }
         }
 
         //////////quitando las comillas simples y dobles
@@ -37,11 +34,10 @@ class Form
             $seguro = str_replace('"', '', $seguro); ///fuera comillas dobles
             $seguro = str_replace("'", "", $seguro); ///fuera comillas simples
         }
-
         return $seguro;
     }
 
-/////fin del metodo getvar
+    /////fin del metodo getvar
 
     /**
      * metodo que crea un combo box a partir de un query en base de datos
@@ -251,5 +247,4 @@ class Form
 
         return $combo;
     }
-
 }

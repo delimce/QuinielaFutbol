@@ -20,7 +20,7 @@ function _index()
     $urls = [
         "index"     => $_ENV['BASE_URL'] . "main/index",
         "rules"     => $_ENV['BASE_URL'] . "juego/reglas",
-        "play"      => $_ENV['BASE_URL'] . "juego/polla",
+        "play"      => $_ENV['BASE_URL'] . "juego/carga",
         "positions" => $_ENV['BASE_URL'] . "main/posiciones",
         "results"   => $_ENV['BASE_URL'] . "main/resultados",
         "load"      => $_ENV['BASE_URL'] . "admin/carga",

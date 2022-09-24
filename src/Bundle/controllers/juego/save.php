@@ -1,8 +1,12 @@
 <?php
 
+use App\Libs\Logger;
+use App\Libs\Calendar;
+use App\Libs\ObjectDB;
+use App\Libs\Security;
+
 function _save()
 {
-
     Security::sessionActive();
     $roundID = Security::getSessionVar("RONDA");
     $db = new ObjectDB();
@@ -27,25 +31,31 @@ function _save()
 
     ////insertando resultados de partidos
     for ($i = 0; $i < count($matches); $i++) {
-
         if (!isNull($_POST[$matches[$i]["id"] . "_m1"]) && $matches[$i]["estatus"] == 0 && isValidDate($matches[$i]["fecha"])) {
-
             ////inserto nuevo marcador
             $db->setField("partido_id", $matches[$i]["id"]);
             $db->setField("marcador1", $_POST[$matches[$i]["id"] . "_m1"]);
             $db->setField("marcador2", $_POST[$matches[$i]["id"] . "_m2"]);
             $db->insertInTo(false);
+            saveAudit(Security::getUserName(), $db->getField("partido_id"), $db->getField("marcador1"), $db->getField("marcador2"), $db->getField("ronda_id"));
         }
     }
 
     $db->commit_transaction();
-
     $db->close();
 }
 
 function isNull($result): bool
 {
     return ($result === '');
+}
+
+
+function saveAudit($user, $matchId, $result1, $result2, $roundId)
+{
+    $logger = new Logger('LoadResults');
+    $loggedText = sprintf("User: %s, Match: %s, Result: %s - %s, Round: %s", $user, $matchId, $result1, $result2, $roundId);
+    $logger->info($loggedText);
 }
 
 function isValidDate($match)

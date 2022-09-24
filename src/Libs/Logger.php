@@ -4,9 +4,10 @@ namespace App\Libs;
 
 class Logger
 {
-    function __construct()
+    function __construct($event = null)
     {
-        $this->log = new \Monolog\Logger($_ENV['APP_NAME']);
+        $logName = $event ?? $_ENV['APP_NAME'];
+        $this->log = new \Monolog\Logger($logName);
         $this->filename = $_ENV['LOG_PATH'];
     }
 
