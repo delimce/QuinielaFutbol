@@ -20,6 +20,6 @@ function _resultados() {
     $db->close();
 
     $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Carga de resultados';
-    $data['body'][] = View::do_fetch(VIEW_PATH . 'main/results.php', array("partidos" => $db, "date" => $currentDate));
+    $data['body'][] = View::do_fetch(VIEW_PATH . 'main/results.php', array("matches" => $db, "date" => $currentDate));
     View::do_dump(LAYOUT_PATH . 'layout.php', $data);
 }

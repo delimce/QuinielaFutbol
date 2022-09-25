@@ -27,6 +27,7 @@ function _save()
     $db->setField("ronda_id", $roundID);
 
     //// borrando el partido si no tiene resultados cargados y si aun no se ha hecho
+    deleteAudit(Security::getUserName(), $roundID);
     $db->deleteWhere("usuario_id = " . Security::getUserID() . " and estatus = 0 and partido_id in (select id from partido where estatus = 0 and (fecha - INTERVAL 60 MINUTE) > '$currentDate' ) ");
 
     ////insertando resultados de partidos
@@ -37,7 +38,7 @@ function _save()
             $db->setField("marcador1", $_POST[$matches[$i]["id"] . "_m1"]);
             $db->setField("marcador2", $_POST[$matches[$i]["id"] . "_m2"]);
             $db->insertInTo(false);
-            saveAudit(Security::getUserName(), $db->getField("partido_id"), $db->getField("marcador1"), $db->getField("marcador2"), $db->getField("ronda_id"));
+            loadAudit(Security::getUserName(), $db->getField("partido_id"), $db->getField("marcador1"), $db->getField("marcador2"), $db->getField("ronda_id"));
         }
     }
 
@@ -51,7 +52,14 @@ function isNull($result): bool
 }
 
 
-function saveAudit($user, $matchId, $result1, $result2, $roundId)
+function deleteAudit($user, $roundID)
+{
+    $logger = new Logger('deleteResults');
+    $loggedText = sprintf("Deleting results for user: %s, Round: %s", $user, $roundID);
+    $logger->info($loggedText);
+}
+
+function loadAudit($user, $matchId, $result1, $result2, $roundId)
 {
     $logger = new Logger('LoadResults');
     $loggedText = sprintf("User: %s, Match: %s, Result: %s - %s, Round: %s", $user, $matchId, $result1, $result2, $roundId);

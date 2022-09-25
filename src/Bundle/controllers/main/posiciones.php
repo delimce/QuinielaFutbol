@@ -19,8 +19,12 @@ function _posiciones()
   $db->setSql(FactoryDao::getRanking());
   $db->executeQuery();
 
+  $urls = [
+    "index" => $_ENV['BASE_URL'] . "main/index",
+  ];
+
   $data['siteTitle'] = Security::getSessionVar("TITTLE") . ' Posiciones de la Polla';
-  $data['body'][] = View::do_fetch(VIEW_PATH . 'main/ranking.php', array("lista" => $db, "ronda" => $roundName));
+  $data['body'][] = View::do_fetch(VIEW_PATH . 'main/ranking.php', array("users" => $db, "round" => $roundName, "urls" => $urls, "userId" => Security::getUserID()));
   View::do_dump(LAYOUT_PATH . 'layout.php', $data);
 
   $db->close();

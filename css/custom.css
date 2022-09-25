@@ -1,0 +1,32 @@
+/* custom form elements */
+.login-image {
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+.form-error {
+    color: yellow;
+    padding: 4px;
+    margin: auto;
+}
+
+.login-image img {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+table tr .selected {
+    font-weight: bold;
+}
+
+tbody.results td {
+    vertical-align: middle !important;
+    text-align: center !important;
+  }
+
+tbody.results h3, input{
+    padding-top:45px;
+}  

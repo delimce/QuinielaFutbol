@@ -17,50 +17,45 @@
     });
 </script>
 
-<main class="container">
-    <div></div>
-    <div>
-        <form name="form1" id="form1">
-            <?php
-            $tempDate = "";
-            while ($match = $matches->getRowFields()) { ?>
+<div></div>
+<article>
+    <form name="form1" id="form1">
+        <table>
+            <tbody class="results">
                 <?php
-                $team1 = explode("_", $match->e1);
-                $name1 = $team1[0];
-                $flag1 = $team1[1];
-                $team2 = explode("_", $match->e2);
-                $name2 = $team2[0];
-                $flag2 = $team2[1];
-                # group by date d/m
-                $date2 = $match->fecha2;
-                if ($date2 != $tempDate) {
-                    echo "<h3>Jornada: $date2</h3>";
-                    $tempDate = $date2;
-                }
-                ?>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><?= $name1 ?></td>
-                            <td><img src="../images/band/<?= $flag1 ?>" alt=""></td>
-                            <td><input type="number" name="<?= $match->idp . "_m1" ?>" value="<?= $match->marcador1 ?>"></td>
-                            <td><b>Vs</b></td>
-                            <td><input type="number" name="<?= $match->idp . "_m2" ?>" value="<?= $match->marcador2 ?>"></td>
-                            <td><img src="../images/band/<?= $flag2 ?>" alt=""></td>
-                            <td><?= $name2 ?></td>
-                        <tr>
-                    </tbody>
-                </table>
+                $tempDate = "";
+                while ($match = $matches->getRowFields()) { ?>
+                    <?php
+                    $team1 = explode("_", $match->e1);
+                    $name1 = $team1[0];
+                    $flag1 = $team1[1];
+                    $team2 = explode("_", $match->e2);
+                    $name2 = $team2[0];
+                    $flag2 = $team2[1];
+                    # group by date d/m
+                    $date2 = $match->fecha2;
+                    if ($date2 != $tempDate) {
+                        echo "<tr><td colspan='7'><h3>Jornada: $date2</h3><td></tr>";
+                        $tempDate = $date2;
+                    }
+                    ?>
+                    <tr>
+                        <td><?= $name1 ?></td>
+                        <td><img src="../images/band/<?= $flag1 ?>" alt=""></td>
+                        <td><input class="result" type="number" name="<?= $match->idp . "_m1" ?>" value="<?= $match->marcador1 ?>"></td>
+                        <td><b>Vs</b></td>
+                        <td><input class="result" type="number" name="<?= $match->idp . "_m2" ?>" value="<?= $match->marcador2 ?>"></td>
+                        <td><img src="../images/band/<?= $flag2 ?>" alt=""></td>
+                        <td><?= $name2 ?></td>
+                    <tr>
+                    <?php } ?>
+            </tbody>
+        </table>
+        <div>
+            <input id="submit" type="submit" class="contrast" value="Guardar">
+        </div>
 
-            <?php } ?>
-
-            <div>
-                <input id="submit" type="submit" value="Guardar">
-            </div>
-
-            <div id="mensaje"></div>
-        </form>
-    </div>
-
-</main>
+        <div id="mensaje"></div>
+    </form>
+</article>
 <p>&nbsp;</p>

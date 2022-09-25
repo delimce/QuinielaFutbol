@@ -1,19 +1,5 @@
 <script>
     $(function() {
-
-        $('#form1').validate({
-            rules: {
-                user: {
-                    required: true
-                },
-                clave: {
-                    required: true
-                }
-            },
-            errorElement: "div"
-        });
-
-
         $("#user").click(function() {
             $("#mensaje").html('&nbsp;');
         });
@@ -22,12 +8,13 @@
             $("#mensaje").html('&nbsp;');
         });
 
-
         $("#submit").click(function() {
 
-            if (!$("#form1").valid())
+            if (!$("#form1").valid()) {
                 return false;
-            var formData = $("#form1").serialize();
+            }
+
+            let formData = $("#form1").serialize();
 
             $.ajax({
                 type: "POST",
@@ -62,32 +49,26 @@
     });
 </script>
 
-
-<section>
-    <article>
-        <h1 style="text-align:center"><img src="../images/wc2022.png"></h1>
-        <div class="module_content">
-            <form name="form1" id="form1">
-                <fieldset>
-                    <label for="user">Usuario:</label>
-                    <input id="user" name="user">
-                </fieldset>
-                <fieldset>
-                    <label for="clave">Clave:</label>
-                    <input id="clave" name="clave" type="password">
-                </fieldset>
-            </form>
-
-            <div style="color:yellow" id="mensaje">&nbsp;</div>
-
-            <br>
-            <input id="submit" type="submit" value="Entrar">
-            <button id="registro">Registrate!!</button>
-        </div>
-        <footer>
-            <div style="margin-top:8px;">
-                ©&nbsp;<?= date("Y") . " Disfruta del mundial jugando la quiniela" ?>
-            </div>
-        </footer>
-    </article>
-</section>
+<article class="grid">
+    <div>
+        <hgroup>
+            <h1>Sign in</h1>
+            <h2>A minimalist layout for Login pages</h2>
+        </hgroup>
+        <form name="form1" id="form1">
+            <input type="text" id="user" name="user" placeholder="Login" aria-label="Login" autocomplete="nickname" required="">
+            <input type="password" id="clave" name="clave" placeholder="Password" aria-label="Password" autocomplete="current-password" required="">
+            <fieldset>
+                <label for="remember">
+                    <input type="checkbox" role="switch" id="remember" name="remember">
+                    Remember me
+                </label>
+            </fieldset>
+            <div class="form-error" id="mensaje">&nbsp;</div>
+            <button type="submit" id="submit" class="contrast" onclick="event.preventDefault()">Entrar</button>
+        </form>
+    </div>
+    <div class="login-image">
+        <img src="../images/wc2022.png">
+    </div>
+</article>

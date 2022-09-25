@@ -19,8 +19,13 @@ function _carga() {
      $db->executeQuery();
      
      $db->close();
+
+     $urls = [
+        "apply" => $_ENV['BASE_URL'] . "admin/aplicar",
+        "index" => $_ENV['BASE_URL'] . "main/index",
+     ];
      
     $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Carga de resultados';
-    $data['body'][] = View::do_fetch(VIEW_PATH . 'admin/carga.php',array("partidos" => $db, "fecha" => $currentDate));
+    $data['body'][] = View::do_fetch(VIEW_PATH . 'admin/load.php',array("matches" => $db, "date" => $currentDate, "urls" => $urls));
     View::do_dump(LAYOUT_PATH . 'layout.php', $data);
 }
