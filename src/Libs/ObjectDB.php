@@ -203,22 +203,18 @@ class ObjectDB extends Database
         $i = 0;
 
         foreach ($this->fields as $value) {
-
             if (!$this->prepare) {
-
                 if (!is_numeric($value)) {
                     $valor = "'" . $this->escapeString($value) . "'";
                 } else {
                     $valor = $value;
                 }
             }
-
             $this->concatSql("$f[$i]  =  $valor ");
             if ($i + 1 < count($this->fields))
                 $this->concatSql(", "); ///para que añada las , entre cada valor
             $i++;
         }
-
         $this->concatSql("where " . $where);
 
         ///execute
@@ -267,11 +263,8 @@ class ObjectDB extends Database
     {
         $this->resetFields();
         $this->executeQuery();
-
         $fields = $this->getFieldsNames();
         $row = $this->getRegNumber();
-
-
         for ($j = 0; $j < count($fields); $j++)
             $this->setField($fields[$j], stripslashes($row[$j]));
 
@@ -290,7 +283,6 @@ class ObjectDB extends Database
         if ($where){
             $this->concatSql(" where " . $where);
         }
-
         return $this->getResultFields();
     }
 
@@ -308,7 +300,6 @@ class ObjectDB extends Database
             $vector[$i] = $row[0];
             $i++;
         }
-
         $this->freeResult();
         return $vector;
     }
@@ -320,14 +311,11 @@ class ObjectDB extends Database
     public function vectorDb()
     {
         $this->getResultFields();
-
         if ($this->getNumRows() > 0) {
-
             foreach ($this->fields as $i => $value) {
                 $vector[$i] = $value;
             }
         }
-
         return $vector;
     }
 
@@ -347,7 +335,6 @@ class ObjectDB extends Database
 
             $i++;
         }
-
         $this->freeResult();
         return $a;
     }

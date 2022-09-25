@@ -19,14 +19,15 @@ class Security
      */
     static public function initSession($id = false)
     {
-        if ($id)
+        if ($id){
             session_id($id);
+        }
         session_start();
     }
 
     static public function getUserID()
     {
-        return $_SESSION["USERID"] ?? "";
+        return intval($_SESSION["USERID"]) ?? "";
     }
 
     static public function setUserID($userID)
