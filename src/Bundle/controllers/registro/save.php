@@ -9,24 +9,23 @@ function _save()
     $db = new ObjectDB();
 
     $pass = Form::getVar("clave");
-    $_POST["r0clave"] = md5($pass);
+    $cipher = md5($pass);
 
     $db->setTable("usuario");
-    $db->setField("nombre", $_POST["r0nombre"]);
-    $db->setField("email", $_POST["r0email"]);
-    $db->setField("usuario", $_POST["r0usuario"]);
-    $db->setField("clave", $_POST["r0clave"]);
+    $db->setField("nombre", $_POST["fullname"]);
+    $db->setField("email", $_POST["email"]);
+    $db->setField("usuario", $_POST["username"]);
+    $db->setField("clave", $cipher);
     $db->setField("profile", "user");
-    $db->setField("contacto", $_POST["r0contacto"]);
+    $db->setField("contacto", $_POST["contact"]);
     $db->insertInTo();
 
     $userData = [
-        "name"    => $_POST["r0nombre"],
-        "email"   => $_POST["r0email"],
-        "user"    => $_POST["r0usuario"],
-        "contact" => $_POST["r0contacto"],
+        "name"    => $_POST["fullname"],
+        "email"   => $_POST["email"],
+        "user"    => $_POST["username"],
+        "contact" => $_POST["contact"],
     ];
-
     $db->close();
 
     $logger = new Logger();

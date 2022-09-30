@@ -3,16 +3,16 @@
 
         $('#form1').validate({
             rules: {
-                r0nombre: {
+                fullname: {
                     required: true
                 },
-                r0usuario: {
+                username: {
                     required: true
                 },
-                r0contacto: {
+                contact: {
                     required: true
                 },
-                r0email: {
+                email: {
                     email: true,
                     required: true
                 },
@@ -25,22 +25,15 @@
                     minlength: 4,
                     equalTo: "#clave"
                 }
-
             },
             errorElement: "div"
         });
 
 
-
         $("#ingreso").click(function() {
-
-            var url = "<?= Front::myUrl('main/login'); ?>";
+            var url = "<?=$url['login']?>";
             $(location).attr('href', url);
-
         });
-
-
-
 
 
         $("#submit").click(function() {
@@ -55,7 +48,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "<?= Front::myUrl('registro/save'); ?>",
+                url: "<?=$urls['save'] ?>",
                 cache: false,
                 data: formData,
                 success: function(data, status) {
@@ -73,29 +66,29 @@
 </script>
 
 
-<article class="module width_full">
+<article>
     <header><h3>Nuevo Usuario</h3></header>
 
     <div class="module_content">
-        <h1 style="text-align: left"><img src="<?= Front::myUrl('images/wc2022.png') ?>"></h1>
+        <h1 style="text-align: left"><img src="../images/wc2022.png"></h1>
         <form name="form1" id="form1">
             <fieldset>
-                <label for="r0nombre">Nombre completo:</label>
-                <input id="r0nombre" name="r0nombre" value="">
+                <label for="fullname">Nombre completo:</label>
+                <input id="fullname" name="fullname" value="">
             </fieldset>
             <fieldset>
-                <label for="r0usuario">Usuario:</label>
-                <input id="r0usuario" name="r0usuario" value="">
+                <label for="username">Usuario:</label>
+                <input id="username" name="username" value="">
             </fieldset>
 
             <fieldset>
-                <label for="r0email">Email:</label>
-                <input id="r0email" name="r0email"  type="email" value="">
+                <label for="email">Email:</label>
+                <input id="email" name="email"  type="email" value="">
             </fieldset>
             
             <fieldset>
-                <label for="r0contacto">Contacto: (empresa, grupo, etc)</label>
-                <input id="r0email" name="r0contacto" value="">
+                <label for="contact">Contacto: (empresa, grupo, etc)</label>
+                <input id="email" name="contact" value="">
             </fieldset>
 
             <fieldset>
@@ -115,11 +108,8 @@
     </div>
     <footer>
         <div class="submit_link">
-            <input id="submit" type="submit" value="Guardar" class="alt_btn">
-            <button id="ingreso" style="width:80px;" class="alt_btn">Login</button>
+            <input id="submit" type="submit" value="Guardar">
+            <button id="ingreso">Login</button>
         </div>
     </footer>
-
-
 </article>
-

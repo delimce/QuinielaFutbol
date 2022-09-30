@@ -40,7 +40,6 @@
             return false;
         });
 
-
         $("#registro").click(function() {
             $(location).attr('href', '<?= $urls['register'] ?>');
 
@@ -56,13 +55,12 @@
             <h2>A minimalist layout for Login pages</h2>
         </hgroup>
         <form name="form1" id="form1">
-            <input type="text" id="user" name="user" placeholder="Login" aria-label="Login" autocomplete="nickname" required="">
+            <input type="text" id="user" name="user" placeholder="Login" aria-label="Login" autocomplete="user" required="">
             <input type="password" id="clave" name="clave" placeholder="Password" aria-label="Password" autocomplete="current-password" required="">
             <fieldset>
-                <label for="remember">
-                    <input type="checkbox" role="switch" id="remember" name="remember">
-                    Remember me
-                </label>
+                <div>
+                    <a href="<?= $urls['register'] ?>">Crear nueva cuenta <b>Gratis</b></a>
+                </div>
             </fieldset>
             <div class="form-error" id="mensaje">&nbsp;</div>
             <button type="submit" id="submit" class="contrast" onclick="event.preventDefault()">Entrar</button>

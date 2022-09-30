@@ -27,7 +27,7 @@ class Security
 
     static public function getUserID()
     {
-        return intval($_SESSION["USERID"]) ?? "";
+        return !empty($_SESSION["USERID"])? intval($_SESSION["USERID"]) : "";
     }
 
     static public function setUserID($userID)
@@ -37,7 +37,7 @@ class Security
 
     static public function getUserName()
     {
-        return $_SESSION["USERNAME"];
+        return !empty($_SESSION["USERNAME"]) ? $_SESSION["USERNAME"] : "";
     }
 
     static public function setUserName($userName)

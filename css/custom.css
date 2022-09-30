@@ -13,6 +13,16 @@
     margin: auto;
 }
 
+.header {
+    text-align: right;
+    padding: 24px 34px 2px 10px;
+}
+
+.footer {
+    text-align: center !important;
+    padding: 20px 0px 20px 0px;
+}
+
 .login-image img {
     display: table-cell;
     vertical-align: middle;
@@ -25,8 +35,9 @@ table tr .selected {
 tbody.results td {
     vertical-align: middle !important;
     text-align: center !important;
-  }
+}
 
-tbody.results h3, input{
-    padding-top:45px;
-}  
+tbody.results h3,
+input {
+    padding-top: 45px;
+}
