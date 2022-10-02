@@ -51,13 +51,14 @@ function _login()
         $db->close(); //cerrando conexion
     } else { ///no se ha logueado
         $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Login';
+        $appTitle = $_ENV['APP_NAME'] ?? 'Poll soccer game';
         $urls = [
-            "index"     => $_ENV['BASE_URL']."main/index",
-            "login"     => $_ENV['BASE_URL']."main/login",
-            "register"  => $_ENV['BASE_URL']."registro/nuevo",
-            "recover"   => $_ENV['BASE_URL']."main/recuperar",
+            "index"     => $_ENV['BASE_URL'] . "main/index",
+            "login"     => $_ENV['BASE_URL'] . "main/login",
+            "register"  => $_ENV['BASE_URL'] . "registro/nuevo",
+            "recover"   => $_ENV['BASE_URL'] . "main/recuperar",
         ];
-        $data['body'][] = View::do_fetch(VIEW_PATH . 'main/login_form.php',['urls' => $urls]);
+        $data['body'][] = View::do_fetch(VIEW_PATH . 'main/login_form.php', ['urls' => $urls, 'app' => $appTitle]);
         View::do_dump(LAYOUT_PATH . 'loginLayout.php', $data);
     }
 }

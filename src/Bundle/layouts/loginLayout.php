@@ -15,7 +15,7 @@
   <main class="container">
     <?php echo (isset($body) && is_array($body)) ? implode("\n", $body) : '' ?>
     <div class="footer">
-        ©&nbsp;<?= date("Y") . " Disfruta del mundial jugando la quiniela" ?>
+        <?=FOOTER_TEXT ?>
     </div>
   </main>
 </body>

@@ -44,15 +44,14 @@
             $(location).attr('href', '<?= $urls['register'] ?>');
 
         });
-
     });
 </script>
 
 <article class="grid">
     <div>
         <hgroup>
-            <h1>Sign in</h1>
-            <h2>A minimalist layout for Login pages</h2>
+            <h1><?= $app ?></h1>
+            <h2><?= LOGIN_TEXT ?></h2>
         </hgroup>
         <form name="form1" id="form1">
             <input type="text" id="user" name="user" placeholder="Login" aria-label="Login" autocomplete="user" required="">

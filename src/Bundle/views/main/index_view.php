@@ -1,8 +1,8 @@
 <div style="width: 90%">
-    <div style="float: left">
+    <div>
         <img onclick="location.replace('<?= $urls['index'] ?>')" src="../images/laeeb_full.png"></h1>
     </div>
-    <div style="float: left">
+    <div>
         <ul>
             <li>
                 <h1><a href="<?= $urls['rules'] ?>">Reglas de juego</a></h1>
@@ -24,9 +24,5 @@
         </ul>
     </div>
     <p>&nbsp;</p>
-
-    <div style="margin: 30px; font-size: 16px; display: inline-block"><br>
-        <span style="text-transform: uppercase; font-weight: bolder">Pote acumulado (<?= $ronda ?>)</span><br>
-    </div>
 
 </div>

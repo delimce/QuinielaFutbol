@@ -13,7 +13,7 @@ function _nuevo() {
      $urls = [
         "index" => $_ENV['BASE_URL'] . "main/index",
         "login" => $_ENV['BASE_URL'] . "main/login",
-        "save" => $_ENV['BASE_URL'] . "registro/save",
+        "save"  => $_ENV['BASE_URL'] . "registro/save",
      ];
     
     $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Registro de Usuario';

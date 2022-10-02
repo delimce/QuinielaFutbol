@@ -19,3 +19,10 @@ const WEB_FOLDER = '/'; //CONTAINER FOLDER
 //===============================================
 const VIEW_PATH = APP_PATH . 'views/'; //with trailing slash pls
 const LAYOUT_PATH = APP_PATH . 'layouts/'; //with trailing slash pls
+
+//===============================================
+// OTHERS CONSTANTS
+//===============================================
+
+const FOOTER_TEXT = '©&nbsp;2012 - 2022 desarrollado por: www.delimce.com';
+const LOGIN_TEXT = "Pronostica tus propios resultados del mundial";
