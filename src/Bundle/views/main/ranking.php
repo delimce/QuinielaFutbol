@@ -13,14 +13,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $pos = 1; ?>
-                    <?php while ($user = $users->getRowFields()) { ?>
-                        <tr class="<?= ($userId === $user->id) ? 'selected' : 'none' ?>">
-                            <td><?= $pos++ ?></td>
-                            <td><?= $user->nombre ?></td>
-                            <td><?= $user->puntos ?></td>
-                        </tr>
+                    <?php if ($users->getRegNumber() > 0) { ?>
+                        <?php $pos = 1; ?>
+                        <?php while ($user = $users->getRowFields()) { ?>
+                            <tr class="<?= ($userId === $user->id) ? 'selected' : 'none' ?>">
+                                <td><?= $pos++ ?></td>
+                                <td><?= $user->nombre ?></td>
+                                <td><?= $user->puntos ?></td>
+                            </tr>
+                        <?php } ?>
                     <?php } ?>
+
                 </tbody>
             </table>
         </div>
