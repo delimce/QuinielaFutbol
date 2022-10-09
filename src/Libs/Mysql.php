@@ -80,7 +80,7 @@ class Mysql implements TemplateDB
     public function simpleQuery($sql)
     {
         try {
-            $this->result = mysqli_query($this->getDbc(), $sql) or die('<font color=#FF0000> error en query: </font>' . mysqli_error($this->getDbc()));
+            $this->result = mysqli_query($this->getDbc(), $sql);
             $this->setNreg($this->numOfRowsRequested());
         } catch (Exception $e) {
             $this->logError($e);

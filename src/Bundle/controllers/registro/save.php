@@ -17,14 +17,15 @@ function _save()
     $db->setField("usuario", $_POST["username"]);
     $db->setField("clave", $cipher);
     $db->setField("profile", "user");
-    $db->setField("contacto", $_POST["contact"]);
+    $db->setField("pais", $_POST["country"]);
+    $db->setField("fecha", @date("Y-m-d H:i:s"));
     $db->insertInTo();
 
     $userData = [
         "name"    => $_POST["fullname"],
         "email"   => $_POST["email"],
         "user"    => $_POST["username"],
-        "contact" => $_POST["contact"],
+        "country" => $_POST["country"],
     ];
     $db->close();
 

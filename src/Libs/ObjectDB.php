@@ -115,7 +115,6 @@ class ObjectDB extends Database
 
     public function executeQuery()
     {
-
         $this->simpleQuery($this->getSql());
     }
 
@@ -151,7 +150,6 @@ class ObjectDB extends Database
         foreach ($this->fields as $value) {
 
             if (!$this->prepare) {
-
                 if (!is_numeric($value)) {
                     $valor = "'" . $this->escapeString($value) . "'";
                 } else {

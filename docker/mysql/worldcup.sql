@@ -3,15 +3,15 @@
 
  Source Server         : wordcup_2022
  Source Server Type    : MySQL
- Source Server Version : 80029
+ Source Server Version : 80029 (8.0.29)
  Source Host           : 127.0.0.1:3306
  Source Schema         : worldcup_db
 
  Target Server Type    : MySQL
- Target Server Version : 80029
+ Target Server Version : 80029 (8.0.29)
  File Encoding         : 65001
 
- Date: 24/07/2022 21:51:32
+ Date: 09/10/2022 13:06:01
 */
 
 SET NAMES utf8mb4;
@@ -28,7 +28,7 @@ CREATE TABLE `accesos_log` (
   `fecha` datetime NOT NULL,
   `cliente_info` mediumtext,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of accesos_log
@@ -193,14 +193,18 @@ CREATE TABLE `usuario` (
   `clave` varchar(50) NOT NULL,
   `profile` enum('user','admin') NOT NULL DEFAULT 'user',
   `contacto` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+  `pais` varchar(255) DEFAULT NULL,
+  `fecha` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE KEY `usuario` (`usuario`) USING BTREE /*!80000 INVISIBLE */,
+  UNIQUE KEY `email` (`email`) USING BTREE /*!80000 INVISIBLE */
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of usuario
 -- ----------------------------
 BEGIN;
-INSERT INTO `usuario` (`id`, `nombre`, `email`, `usuario`, `clave`, `profile`, `contacto`) VALUES (1, 'Administrador', 'admin@nomail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '');
+INSERT INTO `usuario` (`id`, `nombre`, `email`, `usuario`, `clave`, `profile`, `contacto`, `pais`, `fecha`) VALUES (1, 'Administrador', 'admin@nomail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', '', NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -219,6 +223,7 @@ CREATE TABLE `usuario_partido` (
   KEY `fk_partido` (`partido_id`) USING BTREE,
   KEY `idx_ronda` (`ronda_id`) USING BTREE,
   KEY `idx_estatus` (`estatus`) USING BTREE,
+  KEY `idx_usuario_id` (`usuario_id`) USING BTREE,
   CONSTRAINT `fk_partido` FOREIGN KEY (`partido_id`) REFERENCES `partido` (`id`),
   CONSTRAINT `fk_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
