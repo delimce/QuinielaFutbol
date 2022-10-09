@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : wordcup_2022
+ Source Server         : worldcup_mysql
  Source Server Type    : MySQL
  Source Server Version : 80029 (8.0.29)
  Source Host           : 127.0.0.1:3306
@@ -27,8 +27,10 @@ CREATE TABLE `accesos_log` (
   `perfil` enum('user','admin') NOT NULL,
   `fecha` datetime NOT NULL,
   `cliente_info` mediumtext,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `fk_user_access` (`user`),
+  CONSTRAINT `fk_user_access` FOREIGN KEY (`user`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of accesos_log

@@ -17,7 +17,6 @@
     });
 </script>
 
-<div></div>
 <article>
     <form name="form1" id="form1">
         <table>

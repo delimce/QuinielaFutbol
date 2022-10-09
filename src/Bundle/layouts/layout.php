@@ -19,6 +19,9 @@ use App\Libs\Security;
 
 <body>
   <div class="header">
+    <div class="go-home">
+      <a href="<?=$_ENV['BASE_URL'] ?>">Ir a home</a>
+    </div>
     <hgroup>
       <h5><?= Security::getUserName() ?></h5>
       <h4><a href="<?= Front::myUrl('main/logout') ?>">Cerrar sesión</a></h4>

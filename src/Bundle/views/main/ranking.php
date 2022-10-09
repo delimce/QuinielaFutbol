@@ -27,6 +27,5 @@
                 </tbody>
             </table>
         </div>
-        <p class="backi"><a href="javascript:history.back();">regresar</a></p>
     </div>
 </article>

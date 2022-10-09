@@ -106,7 +106,7 @@
             </fieldset>
 
             <fieldset>
-                <label for="country">País:</label>
+                <label for="country">País de residencia:</label>
                 <select id="country" name="country" required="">
                     <option value="">Seleccione</option>
                     <option value="Afghanistan">Afghanistan</option>
