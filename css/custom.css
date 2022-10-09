@@ -1,6 +1,7 @@
 /* custom form elements */
 .login-image {
     text-align: center;
+    margin: auto;
 }
 
 .error {

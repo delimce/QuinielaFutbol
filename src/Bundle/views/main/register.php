@@ -106,8 +106,8 @@
         </form>
     </div>
     <footer>
-        <div class="submit_link">
-            <input id="submit" type="submit" value="Guardar">
+        <div>
+            <input id="submit" class="contrast"  type="submit" value="Guardar">
         </div>
     </footer>
 </article>

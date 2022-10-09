@@ -19,8 +19,9 @@ class Front {
      */
     public static function myUrl($url = '', $fullurl = false) {
 
+        
         $s = $fullurl ? WEB_DOMAIN : '';
-        $s.=WEB_FOLDER . $url;
+        $s.=$_ENV['BASE_URL'] . $url;
         return $s;
     }
 
