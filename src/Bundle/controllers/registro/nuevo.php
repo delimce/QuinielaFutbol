@@ -16,7 +16,7 @@ function _nuevo() {
         "save"  => $_ENV['BASE_URL'] . "registro/save",
      ];
     
-    $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Registro de Usuario';
+    $data['siteTitle'] = $_ENV['APP_NAME'] . ' Registro de Usuario';
     $data['body'][] = View::do_fetch(VIEW_PATH . 'main/register.php',['urls' => $urls]);
     View::do_dump(LAYOUT_PATH . 'loginLayout.php', $data);
 }

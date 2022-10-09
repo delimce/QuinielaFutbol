@@ -20,8 +20,6 @@ use App\Base\Controller;
 
 Security::initSession();
 
-/////variable de titulo del sitio
-Security::setSessionVar("TITTLE", "Quiniela Qatar 2022 ");
 /***********************************
  * cambiar el id de la ronda en que se encuentre la quiniela para la carga de los partidos.
  * cambiar la session por el id de la ronda que se desee jugar;

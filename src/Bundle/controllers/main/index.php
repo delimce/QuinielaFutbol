@@ -7,7 +7,7 @@ use App\Libs\Security;
 function _index()
 {
     Security::sessionActive();
-    $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Home';
+    $data['siteTitle'] = $_ENV['APP_NAME'] . ' Home';
 
     $roundID = Security::getSessionVar("RONDA");
 

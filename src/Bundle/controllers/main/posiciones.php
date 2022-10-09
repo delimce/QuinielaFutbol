@@ -23,7 +23,7 @@ function _posiciones()
     "index" => $_ENV['BASE_URL'] . "main/index",
   ];
 
-  $data['siteTitle'] = Security::getSessionVar("TITTLE") . ' Posiciones de la Polla';
+  $data['siteTitle'] = $_ENV['APP_NAME'] . ' Posiciones de la ronda';
   $data['body'][] = View::do_fetch(VIEW_PATH . 'main/ranking.php', array("users" => $db, "round" => $roundName, "urls" => $urls, "userId" => Security::getUserID()));
   View::do_dump(LAYOUT_PATH . 'layout.php', $data);
 

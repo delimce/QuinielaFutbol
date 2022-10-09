@@ -50,7 +50,7 @@ function _login()
         echo $result;
         $db->close(); //cerrando conexion
     } else { ///no se ha logueado
-        $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Login';
+        $data['siteTitle'] = $_ENV['APP_NAME'] . ' Login';
         $appTitle = $_ENV['APP_NAME'] ?? 'Poll soccer game';
         $urls = [
             "index"     => $_ENV['BASE_URL'] . "main/index",

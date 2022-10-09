@@ -12,24 +12,23 @@ namespace App\Libs;
  *
  * @author luis
  */
-class Front {
+class Front
+{
 
     /**
      * funcion para llamar la url de los recursos y paginas
      */
-    public static function myUrl($url = '', $fullurl = false) {
-
-        
-        $s = $fullurl ? WEB_DOMAIN : '';
-        $s.=$_ENV['BASE_URL'] . $url;
-        return $s;
+    public static function myUrl($url = '')
+    {
+        return $_ENV['BASE_URL'] . $url;
     }
 
     /**
      * funcion para redireccionar
      * @param type $url
      */
-    public static function redirect($url) {
+    public static function redirect($url)
+    {
         header('Location: ' . Front::myUrl($url));
         exit();
     }
@@ -38,11 +37,11 @@ class Front {
      * funcion para redireccionar al parent principal
      * @param type $url
      */
-    public static function redirectTop($url) {
+    public static function redirectTop($url)
+    {
         echo '<script type="text/javascript">';
         echo 'top.location.href="' . Front::myUrl($url) . '"';
         echo '</script>';
         exit();
     }
-
 }

@@ -26,7 +26,7 @@ function _carga()
         "save"  => $_ENV['BASE_URL'] . "juego/save",
     ];
 
-    $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Mi Quiniela';
+    $data['siteTitle'] = $_ENV['APP_NAME'] . ' Mi Quiniela';
     $data['body'][] = View::do_fetch(VIEW_PATH . 'play/form.php', array("matches" => $db, "ronda" => $roundName, "fecha" => $currentDate, "urls" => $urls));
     View::do_dump(LAYOUT_PATH . 'layout.php', $data);
 

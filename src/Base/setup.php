@@ -24,5 +24,5 @@ const LAYOUT_PATH = APP_PATH . 'layouts/'; //with trailing slash pls
 // OTHERS CONSTANTS
 //===============================================
 
-const FOOTER_TEXT = '©&nbsp;2012 - 2022 desarrollado por: www.delimce.com';
+const FOOTER_TEXT = '©&nbsp;2012 - 2022 www.delimce.com';
 const LOGIN_TEXT = "Pronostica los resultados del mundial";

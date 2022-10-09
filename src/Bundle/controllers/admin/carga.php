@@ -25,7 +25,7 @@ function _carga() {
         "index" => $_ENV['BASE_URL'] . "main/index",
      ];
      
-    $data['siteTitle'] = Security::getSessionVar("TITTLE") . 'Carga de resultados';
+    $data['siteTitle'] = $_ENV['APP_NAME'] . ' Carga de resultados';
     $data['body'][] = View::do_fetch(VIEW_PATH . 'admin/load.php',array("matches" => $db, "date" => $currentDate, "urls" => $urls));
     View::do_dump(LAYOUT_PATH . 'layout.php', $data);
 }
