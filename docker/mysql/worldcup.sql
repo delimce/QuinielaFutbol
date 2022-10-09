@@ -11,7 +11,7 @@
  Target Server Version : 80029 (8.0.29)
  File Encoding         : 65001
 
- Date: 09/10/2022 13:06:01
+ Date: 09/10/2022 18:06:18
 */
 
 SET NAMES utf8mb4;
@@ -28,7 +28,7 @@ CREATE TABLE `accesos_log` (
   `fecha` datetime NOT NULL,
   `cliente_info` mediumtext,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of accesos_log
@@ -83,6 +83,46 @@ INSERT INTO `equipo` (`id`, `nombre`, `bandera`) VALUES (29, 'Portugal', 'por.pn
 INSERT INTO `equipo` (`id`, `nombre`, `bandera`) VALUES (30, 'Ghana', 'gha.png');
 INSERT INTO `equipo` (`id`, `nombre`, `bandera`) VALUES (31, 'Uruguay', 'uru.png');
 INSERT INTO `equipo` (`id`, `nombre`, `bandera`) VALUES (32, 'Corea del Sur', 'cor.png');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for grupo
+-- ----------------------------
+DROP TABLE IF EXISTS `grupo`;
+CREATE TABLE `grupo` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(120) NOT NULL,
+  `desc` varchar(255) DEFAULT NULL,
+  `responsable` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
+
+-- ----------------------------
+-- Records of grupo
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
+-- Table structure for grupo_usuario
+-- ----------------------------
+DROP TABLE IF EXISTS `grupo_usuario`;
+CREATE TABLE `grupo_usuario` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `usuario_id` int NOT NULL,
+  `grupo_id` int NOT NULL,
+  `fecha` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `usuario_id` (`usuario_id`) USING BTREE /*!80000 INVISIBLE */,
+  KEY `grupo_id` (`grupo_id`),
+  CONSTRAINT `grupo_usuario_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `grupo_usuario_ibfk_2` FOREIGN KEY (`grupo_id`) REFERENCES `grupo` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- ----------------------------
+-- Records of grupo_usuario
+-- ----------------------------
+BEGIN;
 COMMIT;
 
 -- ----------------------------
@@ -192,13 +232,12 @@ CREATE TABLE `usuario` (
   `usuario` varchar(50) NOT NULL,
   `clave` varchar(50) NOT NULL,
   `profile` enum('user','admin') NOT NULL DEFAULT 'user',
-  `contacto` varchar(100) DEFAULT NULL,
   `pais` varchar(255) DEFAULT NULL,
   `fecha` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `usuario` (`usuario`) USING BTREE /*!80000 INVISIBLE */,
   UNIQUE KEY `email` (`email`) USING BTREE /*!80000 INVISIBLE */
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of usuario

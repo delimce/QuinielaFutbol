@@ -82,4 +82,19 @@ class FactoryDao
                 ORDER BY
                 p.fecha ASC ";
     }
+
+
+ /**
+  * @return string
+  */
+    static public function getGroups()
+    {
+        return "SELECT
+                g.id,
+                g.nombre
+                FROM
+                grupo AS g
+                ORDER BY
+                g.nombre ASC";
+    }
 }

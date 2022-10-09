@@ -55,7 +55,7 @@
                 success: function(data, status) {
                     data = $.trim(data);
                     $("#mensaje").html(data);
-             //       waitAndRedirect('<?= $urls['login'] ?>', 2200);
+                    waitAndRedirect('<?= $urls['login'] ?>', 2200);
 
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -95,10 +95,15 @@
                 <input id="email" name="email" type="email" value="">
             </fieldset>
 
-            <!--       <fieldset>
-                <label for="contact">Contacto: (empresa, grupo, etc)</label>
-                <input id="email" name="contact" value="">
-            </fieldset> -->
+            <fieldset>
+                <label for="grupo">Grupo: (opcional)</label>
+                <select name="grupo" id="grupo">
+                    <option value="">seleccionar</option>
+                    <?php while ($group = $groups->getRowFields()) { ?>
+                        <option value="<?= $group->id ?>"><?= $group->nombre ?></option>
+                    <?php  } ?>
+                </select>
+            </fieldset>
 
             <fieldset>
                 <label for="country">País:</label>
@@ -360,7 +365,7 @@
     </div>
     <footer>
         <div>
-            <input id="submit" class="contrast"  type="submit" value="Guardar">
+            <input id="submit" class="contrast" type="submit" value="Guardar">
         </div>
     </footer>
 </article>

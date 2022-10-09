@@ -1,7 +1,9 @@
 <?php
 
 use App\Base\View;
+use App\Libs\FactoryDao;
 use App\Libs\Front;
+use App\Libs\ObjectDB;
 use App\Libs\Security;
 
 function _nuevo() {
@@ -10,6 +12,9 @@ function _nuevo() {
          Front::redirect ("main/index");
      }
 
+     $db = new ObjectDB();
+     $db->simpleQuery(FactoryDao::getGroups());
+
      $urls = [
         "index" => $_ENV['BASE_URL'] . "main/index",
         "login" => $_ENV['BASE_URL'] . "main/login",
@@ -17,6 +22,6 @@ function _nuevo() {
      ];
     
     $data['siteTitle'] = $_ENV['APP_NAME'] . ' Registro de Usuario';
-    $data['body'][] = View::do_fetch(VIEW_PATH . 'main/register.php',['urls' => $urls]);
+    $data['body'][] = View::do_fetch(VIEW_PATH . 'main/register.php',['urls' => $urls, "groups" => $db]);
     View::do_dump(LAYOUT_PATH . 'loginLayout.php', $data);
 }
