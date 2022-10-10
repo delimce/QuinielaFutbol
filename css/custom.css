@@ -24,6 +24,7 @@
     padding: 24px 34px 12px 10px;
 }
 
+
 .footer {
     text-align: center !important;
     padding: 20px 0px 20px 0px;
@@ -38,12 +39,8 @@ table tr .selected {
     font-weight: bold;
 }
 
-tbody.results td {
-    vertical-align: middle !important;
-    text-align: center !important;
-}
-
-tbody.results h3,
-input {
-    padding-top: 45px;
+input.result{
+   color: gold;
+   min-width: 70px;
+   text-align: center;
 }
