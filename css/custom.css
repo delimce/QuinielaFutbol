@@ -44,3 +44,8 @@ input.result{
    min-width: 70px;
    text-align: center;
 }
+
+.show-msg{
+    text-align: center;
+    margin: auto;
+}

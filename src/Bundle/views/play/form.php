@@ -41,9 +41,9 @@
                     <tr>
                         <td><?= $name1 ?></td>
                         <td><img src="../images/band/<?= $flag1 ?>" alt=""></td>
-                        <td><input class="result" type="number" name="<?= $match->idp . "_m1" ?>" value="<?= $match->marcador1 ?>"></td>
+                        <td><input class="result" maxlength="2" type="number" name="<?= $match->idp . "_m1" ?>" value="<?= $match->marcador1 ?>"></td>
                         <td><b>Vs</b></td>
-                        <td><input class="result" type="number" name="<?= $match->idp . "_m2" ?>" value="<?= $match->marcador2 ?>"></td>
+                        <td><input class="result" maxlength="2" type="number" name="<?= $match->idp . "_m2" ?>" value="<?= $match->marcador2 ?>"></td>
                         <td><img src="../images/band/<?= $flag2 ?>" alt=""></td>
                         <td><?= $name2 ?></td>
                     <tr>
@@ -54,7 +54,7 @@
             <input id="submit" type="submit" class="contrast" value="Guardar">
         </div>
 
-        <div id="mensaje"></div>
+        <div class="show-msg" id="mensaje"></div>
     </form>
 </article>
 <p>&nbsp;</p>

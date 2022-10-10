@@ -22,16 +22,16 @@ use App\Libs\Security;
      <span>
       <?= Security::getUserName() ?>
     </span>
-    <nav>
-      <ul>
-        <li><a href="<?= $_ENV['BASE_URL'] ?>">Home</a></li>
-        <li><a href="<?= Front::myUrl('juego/reglas') ?>">Reglas</a></li>
-        <li><a href="<?= Front::myUrl('juego/carga') ?>">Quiniela</a></li>
-        <li><a href="<?= Front::myUrl('main/posiciones') ?>">Posiciones</a></li>
-        <li><a href="<?= Front::myUrl('main/resultados') ?>">Resultados</a></li>
-        <li><a href="<?= Front::myUrl('main/logout') ?>">Cerrar</a></li>
-      </ul>
-    </nav>
+      <nav>
+        <ul>
+          <li><a href="<?= $_ENV['BASE_URL'] ?>">Home</a></li>
+          <li><a href="<?= Front::myUrl('juego/reglas') ?>">Reglas</a></li>
+          <li><a href="<?= Front::myUrl('juego/carga') ?>">Quiniela</a></li>
+          <li><a href="<?= Front::myUrl('main/posiciones') ?>">Posiciones</a></li>
+          <li><a href="<?= Front::myUrl('main/resultados') ?>">Resultados</a></li>
+          <li><a href="<?= Front::myUrl('main/logout') ?>">Cerrar</a></li>
+        </ul>
+      </nav>
   </div>
   <main class="container">
     <?php echo (isset($body) && is_array($body)) ? implode("\n", $body) : '' ?>
