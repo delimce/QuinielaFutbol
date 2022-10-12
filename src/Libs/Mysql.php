@@ -148,7 +148,7 @@ class Mysql implements TemplateDB
     public function lastIdInserted()
     {
         try {
-            $this->newId = mysqli_insert_id($this->getDbc()) or die('<font color=#FF0000> Error en ID generado de insert</font>' . mysqli_error($this->getDbc()));
+            $this->newId = mysqli_insert_id($this->getDbc()) or die('<font color=#FF0000> Error en insert: </font>' . mysqli_error($this->getDbc()));
         } catch (Exception $e) {
             $this->logError($e);
         }

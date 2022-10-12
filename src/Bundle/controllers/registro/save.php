@@ -52,5 +52,5 @@ function _save()
     $loggerText = sprintf("New user created: %s", json_encode($userData));
     $logger->info($loggerText);
 
-    echo '<h4 class="alert_success">Registro Exitoso</h4>';
+    echo '1';
 }

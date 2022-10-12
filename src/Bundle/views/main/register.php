@@ -54,16 +54,15 @@
                 data: formData,
                 success: function(data, status) {
                     data = $.trim(data);
+                    if (data == '1') {
+                        data = 'Registro exitoso';
+                        waitAndRedirect('<?= $urls['login'] ?>', 2100);
+                    } else {
+                        $('#submit').removeAttr('disabled');
+                    }
                     $("#mensaje").html(data);
-                    waitAndRedirect('<?= $urls['login'] ?>', 2200);
-
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus, errorThrown);
-                    $("#mensaje").html('Something went wrong, please try again.');
                 }
             });
-
             return false;
         });
 
