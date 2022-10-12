@@ -359,6 +359,14 @@
                 <label for="clave2">Repita contraseña:</label>
                 <input id="clave2" name="clave2" type="password" value="">
             </fieldset>
+
+          <fieldset>
+                <div class="g-recaptcha" data-sitekey="<?=$siteKey?>"></div>
+          </fieldset>
+               
+
+
+
             <div id="mensaje">&nbsp;</div>
         </form>
     </div>

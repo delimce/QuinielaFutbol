@@ -18,6 +18,7 @@
         "monolog/monolog": "^2.8",
         "components/jquery": "^3.6",
         "picocss/pico": "^1.5",
-        "vlucas/phpdotenv": "^5.4"
+        "vlucas/phpdotenv": "^5.4",
+        "google/recaptcha": "^1.2"
     }
 }

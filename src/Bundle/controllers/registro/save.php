@@ -3,14 +3,25 @@
 use App\Libs\Form;
 use App\Libs\Logger;
 use App\Libs\ObjectDB;
+use ReCaptcha\ReCaptcha;
 
 function _save()
 {
     $db = new ObjectDB();
+    $logger = new Logger();
 
+    $recaptcha = Form::getVar("g-recaptcha-response");
     $pass = Form::getVar("clave");
     $group = Form::getVar("grupo");
     $cipher = md5($pass);
+
+    # recaptcha validate
+    if (!validateRecaptcha($recaptcha)) {
+        $loggerText = sprintf("Validate captcha error with: %s", $recaptcha);
+        $logger->error($loggerText);
+        echo "Recaptcha error";
+        return;
+    }
 
     $db->begin_transaction();
 
@@ -45,12 +56,28 @@ function _save()
 
     $db->commit_transaction();
 
-
     $db->close();
 
-    $logger = new Logger();
     $loggerText = sprintf("New user created: %s", json_encode($userData));
     $logger->info($loggerText);
 
     echo '1';
+}
+
+
+/**
+ * @param string $recaptchaResponse
+ * @return bool
+ */
+function validateRecaptcha(string $recaptchaResponse): bool
+{
+    $recaptchaSecret = $_ENV["RECAPTCHA_SECRET_KEY"];
+    $recaptcha = new ReCaptcha($recaptchaSecret);
+    $resp = $recaptcha->verify($recaptchaResponse, $_SERVER['REMOTE_ADDR']);
+
+    if ($resp->isSuccess()) {
+        return true;
+    } else {
+        return false;
+    }
 }

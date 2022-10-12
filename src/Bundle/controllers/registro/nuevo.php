@@ -15,6 +15,8 @@ function _nuevo() {
      $db = new ObjectDB();
      $db->simpleQuery(FactoryDao::getGroups());
 
+     $siteKey = $_ENV['RECAPTCHA_SITE_KEY'];
+
      $urls = [
         "index" => $_ENV['BASE_URL'] . "main/index",
         "login" => $_ENV['BASE_URL'] . "main/login",
@@ -22,6 +24,6 @@ function _nuevo() {
      ];
     
     $data['siteTitle'] = $_ENV['APP_NAME'] . ' Registro de Usuario';
-    $data['body'][] = View::do_fetch(VIEW_PATH . 'main/register.php',['urls' => $urls, "groups" => $db]);
+    $data['body'][] = View::do_fetch(VIEW_PATH . 'main/register.php',['urls' => $urls, "groups" => $db, "siteKey" => $siteKey]);
     View::do_dump(LAYOUT_PATH . 'loginLayout.php', $data);
 }
