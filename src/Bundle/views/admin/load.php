@@ -47,13 +47,13 @@
             <table>
                 <tbody>
                     <tr>
-                        <td><?= $name1 ?></td>
-                        <td><img src="../images/band/<?= $flag1 ?>" alt=""></td>
-                        <td><input class="result" maxlength="2" type="number" id="<?= $match->idp . "_m1" ?>" value="<?= $match->marcador1 ?>"></td>
-                        <td><b>Vs</b></td>
-                        <td><input class="result" maxlength="2" type="number" id="<?= $match->idp . "_m2" ?>" value="<?= $match->marcador2 ?>"></td>
-                        <td><img src="../images/band/<?= $flag2 ?>" alt=""></td>
-                        <td><?= $name2 ?></td>
+                        <td class="load-team"><?= $name1 ?></td>
+                        <td class="load-flag"><img src="../images/band/<?= $flag1 ?>" alt=""></td>
+                        <td class="load-result"><input class="result" maxlength="2" type="number" id="<?= $match->idp . "_m1" ?>" value="<?= $match->marcador1 ?>"></td>
+                        <td class="load-vs"><b>Vs</b></td>
+                        <td class="load-result"><input class="result" maxlength="2" type="number" id="<?= $match->idp . "_m2" ?>" value="<?= $match->marcador2 ?>"></td>
+                        <td class="load-flag"><img src="../images/band/<?= $flag2 ?>" alt=""></td>
+                        <td class="load-team"><?= $name2 ?></td>
                         <td>
                             <input type="button" class="contrast" onclick="processGame(<?= $match->idp ?>, '<?= $match->idp . '_m1' ?>', '<?= $match->idp . '_m2' ?>')" value="Aplicar">
                         </td>

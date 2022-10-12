@@ -61,3 +61,29 @@ input.result{
     text-align: center;
     margin: auto;
 }
+
+tr h3{
+    margin: 15px 0 15px 0;
+}
+
+/* media queries for responsive design */
+
+@media only screen and (max-width: 500px) {
+
+    .load-team, .load-result{
+        padding: 0%;
+        margin: 0%;
+    }
+
+    .load-team{
+        padding: 0 0 0 6px
+    }
+
+    .load-vs{
+        margin: auto;
+    }
+
+    .load-flag{
+        display:none;
+    }
+}
