@@ -83,6 +83,26 @@ class FactoryDao
                 p.fecha ASC ";
     }
 
+ /**
+  * @param int $userId
+  * @param int $roundId
+  * 
+  * @return string
+  */
+    static public function getDashboard(int $userId,int $roundId)
+    {
+        return "
+        select 
+        count(*) as total,
+        DATEDIFF(now(),min(p.fecha)) as days,
+        count(up.usuario_id) as filled
+        from partido p 
+        left join usuario_partido up on (p.id = up.partido_id and up.usuario_id = $userId)
+        where p.ronda_id = $roundId
+        group by p.ronda_id
+        ";
+    }
+
 
  /**
   * @return string

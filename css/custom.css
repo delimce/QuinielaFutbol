@@ -4,8 +4,8 @@
     margin: auto;
 }
 
-.main-image img{
-    width: 19%;
+.main-img img{
+    width: 20%;
 }
 
 .error {
@@ -39,8 +39,20 @@ table tr .selected {
     font-weight: bold;
 }
 
+.dashboard{
+    padding: 52px;
+    line-height: 38px;
+}
+
+.featured {
+    font-weight: bolder;
+    font-size: 28px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
 input.result{
-   color: gold;
+   color: gray;
    min-width: 70px;
    text-align: center;
 }

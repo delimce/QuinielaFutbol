@@ -3,13 +3,17 @@
         <img onclick="location.replace('<?= $urls['index'] ?>')" src="../images/laeeb_full.png"></h1>
     </div>
     <div>
-        <ul>
+        <article class="dashboard">
+            <span>Faltan: </span><span class="featured"><?= abs($dash['days']) ?></span><span> días para el mundial</span><br>
+            <span>Resultados cargados: </span><span class="featured"><?= $dash['filled'] . '/' . $dash['total'] ?></span><br>
+            <br>
+            <a href="<?= $urls['play'] ?>" role="button" class="contrast">Cargar</a>
+            <p>&nbsp;</p>
             <?php if ($admin) { ?>
-                <li>
-                    <h1><a href="<?= $urls['load'] ?>" style="color: blue">Cargar datos Reales</a></h1>
-                </li>
+                    <span>Sólo admin:</span>
+                    <span><a href="<?= $urls['load'] ?>">Cargar datos Reales</a></span>
             <?php } ?>
-        </ul>
+        </article>
     </div>
     <p>&nbsp;</p>
 
