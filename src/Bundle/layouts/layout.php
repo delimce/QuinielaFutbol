@@ -19,7 +19,7 @@ use App\Libs\Security;
 
 <body>
   <div class="header">
-     <span>
+     <span class="full-name">
       <?= Security::getUserName() ?>
     </span>
       <nav>

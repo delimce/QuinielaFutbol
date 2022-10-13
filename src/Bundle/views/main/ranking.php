@@ -18,7 +18,7 @@
                         <?php while ($user = $users->getRowFields()) { ?>
                             <tr class="<?= ($userId === $user->id) ? 'selected' : 'none' ?>">
                                 <td><?= $pos++ ?></td>
-                                <td><?= $user->nombre ?></td>
+                                <td class="full-name"><?= $user->nombre ?></td>
                                 <td><?= $user->puntos ?></td>
                             </tr>
                         <?php } ?>

@@ -66,6 +66,11 @@ tr h3{
     margin: 15px 0 15px 0;
 }
 
+.full-name{
+    display: block;
+    text-transform: capitalize;
+}
+
 /* media queries for responsive design */
 
 @media only screen and (max-width: 500px) {
