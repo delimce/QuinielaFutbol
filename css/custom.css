@@ -73,6 +73,7 @@ tr h3{
 .full-name{
     display: block;
     text-transform: capitalize;
+    overflow: scroll;
 }
 
 /* media queries for responsive design */

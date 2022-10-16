@@ -16,7 +16,7 @@
 /* Logo */
 .logo {
     width: 106px;
-    margin-left: 40px;
+    margin-left: 29px;
     float: left !important;
 }
 
@@ -40,6 +40,12 @@ ol {
     padding: 0;
     overflow: hidden;
     background-color: var(--black);
+}
+
+li {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 52px;
 }
 
 /* Menu Icon *
