@@ -1,10 +1,5 @@
-<article>
 
-    <div>
-        <img style="width: 130px; padding: 20px" onclick="location.replace('main/index')" src="../images/laeeb_full.png"></h1>
-    </div>
-    <div>Fecha actual: <b><?= $date ?></b></div>
-
+<h1>Resultados</h1>
     <table>
         <tbody class="results">
             <?php
@@ -28,9 +23,13 @@
                 <tr>
                     <td><?= $name1 ?></td>
                     <td><img src="../images/band/<?= $flag1 ?>" alt=""></td>
-                    <td><h3><?= $match->marcador1 ?></h3></td>
+                    <td>
+                        <h3><?= $match->marcador1 ?></h3>
+                    </td>
                     <td><b>Vs</b></td>
-                    <td><h3><?= $match->marcador2 ?></h3></td>
+                    <td>
+                        <h3><?= $match->marcador2 ?></h3>
+                    </td>
                     <td><img src="../images/band/<?= $flag2 ?>" alt=""></td>
                     <td><?= $name2 ?></td>
                 <tr>
@@ -38,5 +37,3 @@
         </tbody>
     </table>
     <p>&nbsp;</p>
-
-</article>

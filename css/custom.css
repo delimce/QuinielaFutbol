@@ -1,7 +1,12 @@
 /* custom form elements */
-.login-image {
-    text-align: center;
-    margin: auto;
+
+
+.content {
+    min-height: 600px;
+}
+
+h1{
+    padding-left: 22px;
 }
 
 .main-img img{
@@ -40,7 +45,6 @@ table tr .selected {
 }
 
 .dashboard{
-    padding: 52px;
     line-height: 38px;
 }
 
@@ -73,7 +77,7 @@ tr h3{
 
 /* media queries for responsive design */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
 
     .load-team, .load-result{
         padding: 0%;
