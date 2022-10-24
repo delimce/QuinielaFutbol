@@ -156,7 +156,7 @@ CREATE TABLE `partido` (
 BEGIN;
 INSERT INTO `partido` (`id`, `ronda_id`, `fecha`, `equipo1_id`, `marcador1`, `equipo2_id`, `marcador2`, `ganador`, `estatus`) VALUES (1, 1, '2022-11-21 04:00:00', 3, NULL, 4, NULL, NULL, 0);
 INSERT INTO `partido` (`id`, `ronda_id`, `fecha`, `equipo1_id`, `marcador1`, `equipo2_id`, `marcador2`, `ganador`, `estatus`) VALUES (2, 1, '2022-11-21 07:00:00', 5, NULL, 6, NULL, NULL, 0);
-INSERT INTO `partido` (`id`, `ronda_id`, `fecha`, `equipo1_id`, `marcador1`, `equipo2_id`, `marcador2`, `ganador`, `estatus`) VALUES (3, 1, '2022-11-21 10:00:00', 1, NULL, 2, NULL, NULL, 0);
+INSERT INTO `partido` (`id`, `ronda_id`, `fecha`, `equipo1_id`, `marcador1`, `equipo2_id`, `marcador2`, `ganador`, `estatus`) VALUES (3, 1, '2022-11-20 17:00:00', 1, NULL, 2, NULL, NULL, 0);
 INSERT INTO `partido` (`id`, `ronda_id`, `fecha`, `equipo1_id`, `marcador1`, `equipo2_id`, `marcador2`, `ganador`, `estatus`) VALUES (4, 1, '2022-11-21 13:00:00', 7, NULL, 8, NULL, NULL, 0);
 INSERT INTO `partido` (`id`, `ronda_id`, `fecha`, `equipo1_id`, `marcador1`, `equipo2_id`, `marcador2`, `ganador`, `estatus`) VALUES (5, 1, '2022-11-22 04:00:00', 9, NULL, 10, NULL, NULL, 0);
 INSERT INTO `partido` (`id`, `ronda_id`, `fecha`, `equipo1_id`, `marcador1`, `equipo2_id`, `marcador2`, `ganador`, `estatus`) VALUES (6, 1, '2022-11-22 07:00:00', 15, NULL, 16, NULL, NULL, 0);
