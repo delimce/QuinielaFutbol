@@ -52,17 +52,39 @@ class FactoryDao
 
         return "SELECT
                 u.id,
-                concat(u.nombre,' (',u.contacto,')') as nombre,
-                sum(up.puntaje) as puntos
+                concat(u.nombre,' (',u.pais,')') as nombre,
+                sum(up.puntaje) as puntos, 
+                group_concat(distinct gu.grupo_id) as grupos
                 FROM
                 usuario AS u
                 INNER JOIN usuario_partido AS up ON up.usuario_id = u.id
+                LEFT JOIN grupo_usuario gu ON gu.usuario_id = u.id
                 GROUP BY
                 u.id
                 order by puntos desc";
     }
 
-    static public function getMatchesToday($ronda, $fecha)
+
+    static public function getRankingByGroup($group)
+    {
+        $sanitizeGroup = stripslashes($group);
+
+        return "SELECT
+                u.id,
+                concat(u.nombre,' (',u.pais,')') as nombre,
+                sum(up.puntaje) as puntos, 
+                group_concat(distinct gu.grupo_id) as grupos
+                FROM
+                usuario AS u
+                INNER JOIN usuario_partido AS up ON up.usuario_id = u.id
+                INNER JOIN grupo_usuario gu ON gu.usuario_id = u.id
+                WHERE gu.grupo_id = $sanitizeGroup
+                GROUP BY
+                u.id
+                order by puntos desc";
+    }
+
+    static public function getMatchesToday($ronda, $date)
     {
 
         return "SELECT
@@ -78,18 +100,18 @@ class FactoryDao
                 FROM
                 partido AS p
                 WHERE
-                p.ronda_id = $ronda and p.fecha <= '$fecha'
+                p.ronda_id = $ronda and p.fecha <= '$date'
                 ORDER BY
                 p.fecha ASC ";
     }
 
- /**
-  * @param int $userId
-  * @param int $roundId
-  * 
-  * @return string
-  */
-    static public function getDashboard(int $userId,int $roundId)
+    /**
+     * @param int $userId
+     * @param int $roundId
+     * 
+     * @return string
+     */
+    static public function getDashboard(int $userId, int $roundId)
     {
         return "
         select 
@@ -104,9 +126,9 @@ class FactoryDao
     }
 
 
- /**
-  * @return string
-  */
+    /**
+     * @return string
+     */
     static public function getGroups()
     {
         return "SELECT
@@ -114,6 +136,21 @@ class FactoryDao
                 g.nombre
                 FROM
                 grupo AS g
+                ORDER BY
+                g.nombre ASC";
+    }
+
+    // get groups by user
+    static public function getGroupsByUser($userId)
+    {
+        return "SELECT
+                g.id,
+                g.nombre
+                FROM
+                grupo AS g
+                INNER JOIN grupo_usuario AS ug ON ug.grupo_id = g.id
+                WHERE
+                ug.usuario_id = $userId
                 ORDER BY
                 g.nombre ASC";
     }

@@ -38,10 +38,12 @@ h1{
 .login-image img {
     display: table-cell;
     vertical-align: middle;
+    margin: auto;
 }
 
-table tr .selected {
+.user-selected {
     font-weight: bold;
+    font-size: 30px;
 }
 
 .dashboard{
