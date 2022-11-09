@@ -43,7 +43,11 @@ h1{
 
 .user-selected {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 19px;
+}
+
+.user-selected .full-name {
+    color: aqua !important;
 }
 
 .dashboard{

@@ -9,7 +9,7 @@
                 cache: false,
                 data: formData,
                 success: function(data) {
-                    $("#mensaje").html('<b>Completado con exito</b>');
+                    $("#mensaje").html('<b>Completado con éxito</b>');
                 }
             });
             return false;
@@ -42,9 +42,9 @@
                         <tr>
                             <td class="load-team"><?= $name1 ?></td>
                             <td class="load-flag"><img src="../images/band/<?= $flag1 ?>" alt=""></td>
-                            <td class="load-result"><input class="result" maxlength="2" type="number" name="<?= $match->idp . "_m1" ?>" value="<?= $match->marcador1 ?>"></td>
+                            <td class="load-result"><input class="result" maxlength="2" type="number" oninput="this.value = validateResult(this.value)" name="<?= $match->idp . "_m1" ?>" value="<?= $match->marcador1 ?>"></td>
                             <td class="load-vs"><b>Vs</b></td>
-                            <td class="load-result"><input class="result" maxlength="2" type="number" name="<?= $match->idp . "_m2" ?>" value="<?= $match->marcador2 ?>"></td>
+                            <td class="load-result"><input class="result" maxlength="2" type="number" oninput="this.value = validateResult(this.value)" name="<?= $match->idp . "_m2" ?>" value="<?= $match->marcador2 ?>"></td>
                             <td class="load-flag"><img src="../images/band/<?= $flag2 ?>" alt=""></td>
                             <td class="load-team"><?= $name2 ?></td>
                         <tr>
@@ -60,3 +60,12 @@
     </form>
 </article>
 <p>&nbsp;</p>
+<script>
+    function validateResult(result) {
+        let value = Math.abs(result);
+        if (value > 12) {
+            value = 0;
+        }
+        return value;
+    }
+</script>
