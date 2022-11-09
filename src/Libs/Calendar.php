@@ -54,8 +54,17 @@ class Calendar {
      * @return string
      */
     public function datetime($datetime) {
-
         return date($this->format, strtotime($datetime));
+    }
+
+   /**
+    * get hours diff with a string datetime
+    * @param string $match
+    * @return int
+    */
+    static function diffTime(string $match): int {
+        $date1 = strtotime($match);
+        return (int) floor(($date1 - time()) / 3600);
     }
 
 }

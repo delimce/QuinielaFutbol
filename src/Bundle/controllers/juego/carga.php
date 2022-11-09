@@ -1,6 +1,7 @@
 <?php
 
 use App\Base\View;
+use App\Libs\Calendar;
 use App\Libs\ObjectDB;
 use App\Libs\Security;
 use App\Libs\FactoryDao;
@@ -33,14 +34,10 @@ function _carga()
     $db->close();
 }
 
-function diffTime($match)
+//valida si hay tiempo para apostar
+function isInTime(string $match): bool
 {
-    $date1 = strtotime($match);
-    return intval(floor(($date1 - time()) / 3600));
-}
-
-//valida si hay tiempo para apostar (minimo 3 horas antes de empezar)
-function isInTime($match)
-{
-    return (diffTime($match) >= 1) ? true : false;
+    $diffInHour = Calendar::diffTime($match);
+    //print_r($diffInHour);
+    return ($diffInHour >= MIN_HOUR_TO_BET);
 }

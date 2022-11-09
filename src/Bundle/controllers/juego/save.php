@@ -66,9 +66,8 @@ function loadAudit($user, $matchId, $result1, $result2, $roundId)
     $logger->info($loggedText);
 }
 
-function isValidDate($match)
+function isValidDate(string $match):bool
 {
-    $date1 = strtotime($match);
-    $res = (int)(floor(($date1 - time()) / 3600));
-    return ($res > 0);
+    $diffInHour = Calendar::diffTime($match);
+    return ($diffInHour >= MIN_HOUR_TO_BET);
 }

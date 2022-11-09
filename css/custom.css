@@ -5,11 +5,11 @@
     min-height: 600px;
 }
 
-h1{
+h1 {
     padding-left: 22px;
 }
 
-.main-img img{
+.main-img img {
     width: 20%;
 }
 
@@ -50,7 +50,7 @@ h1{
     color: aqua !important;
 }
 
-.dashboard{
+.dashboard {
     line-height: 38px;
 }
 
@@ -61,45 +61,57 @@ h1{
     margin-right: 4px;
 }
 
-input.result{
-   color: gray;
-   min-width: 70px;
-   text-align: center;
+input.result {
+    color: gray;
+    min-width: 70px;
+    text-align: center;
 }
 
-.show-msg{
+.show-msg {
     text-align: center;
     margin: auto;
 }
 
-tr h3{
+tr h3 {
     margin: 15px 0 15px 0;
 }
 
-.full-name{
+.full-name {
     display: block;
     text-transform: capitalize;
     overflow: auto;
+}
+
+.load-result {
+    margin: auto;
+    text-align: center;
+    font-size: x-large
+}
+
+.load-result input {
+    margin-top: 14px !important;
+    font-size: large;
 }
 
 /* media queries for responsive design */
 
 @media only screen and (max-width: 600px) {
 
-    .load-team, .load-result{
+    .load-team,
+    .load-result {
         padding: 0%;
         margin: 0%;
     }
 
-    .load-team{
+    .load-team {
         padding: 0 0 0 6px
     }
 
-    .load-vs{
+    .load-vs {
         margin: auto;
     }
 
-    .load-flag{
-        display:none;
+    .load-flag {
+        display: none;
     }
 }
