@@ -13,7 +13,7 @@
                         $team2 = explode("_", $match->e2);
                         $name2 = $team2[0];
                         $flag2 = $team2[1];
-                        $hour = setHour($match->fecha);
+                        $hour = setHour($match->fecha, $timezone);
                         # group by date d/m
                         $date2 = $match->fecha2;
                         if ($date2 != $tempDate) {
@@ -23,7 +23,9 @@
                         $input1 = '<input class="result" maxlength="2" type="number" oninput="this.value = validateResult(this.value)" name="' . $match->idp . '_m1' . '" value="' . $match->marcador1 . '">';
                         $input2 = '<input class="result" maxlength="2" type="number" oninput="this.value = validateResult(this.value)" name="' . $match->idp . '_m2' . '" value="' . $match->marcador2 . '">';
                         ?>
-                        <tr class="match-hour"><td colspan="7"><?=$hour?></td></tr>
+                        <tr class="match-hour">
+                            <td colspan="7"><?= $hour ?></td>
+                        </tr>
                         <tr class="match-line">
                             <td class="load-team"><?= $name1 ?></td>
                             <td class="load-flag"><img src="../images/band/<?= $flag1 ?>" alt=""></td>

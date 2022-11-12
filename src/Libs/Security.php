@@ -40,6 +40,16 @@ class Security
         return !empty($_SESSION["USERNAME"]) ? $_SESSION["USERNAME"] : "";
     }
 
+    static public function setUserCountry($country)
+    {
+        $_SESSION["COUNTRY"] = $country;
+    }
+
+    static public function getUserCountry()
+    {
+        return !empty($_SESSION["COUNTRY"]) ? $_SESSION["COUNTRY"] : "Spain";
+    }
+
     static public function setUserName($userName)
     {
         $_SESSION["USERNAME"] = $userName;

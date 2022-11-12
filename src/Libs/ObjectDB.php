@@ -168,7 +168,7 @@ class ObjectDB extends Database
             }
 
             $this->concatSql($valor);
-            if ($i < count($this->fields)){
+            if ($i < count($this->fields)) {
                 $this->concatSql(","); ///para que añada las , entre cada valor
             }
             $i++;
@@ -262,10 +262,12 @@ class ObjectDB extends Database
         $this->resetFields();
         $this->executeQuery();
         $fields = $this->getFieldsNames();
-        $row = $this->getRegNumber();
-        for ($j = 0; $j < count($fields); $j++)
-            $this->setField($fields[$j], stripslashes($row[$j]));
-
+        if ($this->getNumRows() > 0) {
+            $row = $this->getRegNumber();
+            for ($j = 0; $j < count($fields); $j++) {
+                $this->setField($fields[$j], stripslashes($row[$j]));
+            }
+        }
         $this->freeResult();
     }
 
@@ -274,11 +276,11 @@ class ObjectDB extends Database
      * fields: campos separados por ,
      * where: en caso de que filtre
      */
-    public function getTableFields($fiels, $where = false)
+    public function getTableFields($fields, $where = false)
     {
-        $this->sql = "select $fiels from ";
+        $this->sql = "select $fields from ";
         $this->concatSql($this->getTable());
-        if ($where){
+        if ($where) {
             $this->concatSql(" where " . $where);
         }
         return $this->getResultFields();

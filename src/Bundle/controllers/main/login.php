@@ -26,6 +26,7 @@ function _login()
             Security::setUserID($db->getField("id"));
             Security::setUserName($db->getField("nombre"));
             Security::setUserProfileName($db->getField("profile"));
+            Security::setUserCountry($db->getField("pais"));
             $id = $db->getField("id");
 
             $db->begin_transaction();

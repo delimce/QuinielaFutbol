@@ -154,4 +154,12 @@ class FactoryDao
                 ORDER BY
                 g.nombre ASC";
     }
+
+    // get timezone by country
+    static public function getTimezoneByCountry($country)
+    {
+        return sprintf("SELECT t.timezone 
+         FROM timezone AS t
+         WHERE LOCATE(LOWER('%s'), t.country) > 0 and t.default = 1 limit 1", stripslashes($country));
+    }
 }
