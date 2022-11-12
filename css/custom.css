@@ -93,14 +93,27 @@ tr h3 {
     font-size: large;
 }
 
+.results td{
+    border: 0;
+    padding-bottom: 20px;
+} 
+
+.match-hour td{
+    line-height: 1px;
+    border: 0;
+    text-align: center !important;
+    font-size: smaller;
+}
+
+
 /* media queries for responsive design */
 
 @media only screen and (max-width: 600px) {
 
     .load-team,
     .load-result {
-        padding: 0%;
-        margin: 0%;
+        padding: 0;
+        margin: 0;
     }
 
     .load-team {
@@ -114,4 +127,9 @@ tr h3 {
     .load-flag {
         display: none;
     }
+
+    .match-hour td {
+        padding-left: 100px;
+        text-align: left !important;
+      }
 }

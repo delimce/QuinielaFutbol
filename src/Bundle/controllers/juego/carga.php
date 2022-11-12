@@ -41,3 +41,20 @@ function isInTime(string $match): bool
     //print_r($diffInHour);
     return ($diffInHour >= MIN_HOUR_TO_BET);
 }
+
+function setHour(string $date): string
+{
+    $hour = explode(" ", $date);
+    $hour = $hour[1];
+    $hour = explode(":", $hour);
+    $hour = $hour[0] . ":" . $hour[1];
+    return changeHourFormat($hour);
+}
+
+// change hour format from 24 to 12
+function changeHourFormat(string $hour): string
+{
+   $hourIn24 = explode(":", $hour);
+    $hourIn12 = date("h:i A", strtotime($hour));
+    return $hourIn12;
+}
