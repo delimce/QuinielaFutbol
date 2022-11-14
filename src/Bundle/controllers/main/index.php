@@ -37,6 +37,7 @@ function _index()
         "positions" => $_ENV['BASE_URL'] . "main/posiciones",
         "results"   => $_ENV['BASE_URL'] . "main/resultados",
         "load"      => $_ENV['BASE_URL'] . "admin/carga",
+        "users"     => $_ENV['BASE_URL'] . "admin/usuarios",
     ];
 
     $data['body'][] = View::do_fetch(VIEW_PATH . 'main/index_view.php', ["ronda" => $roundName, "urls" => $urls, "admin" => $isAdmin, "dash" => $dashboard]);

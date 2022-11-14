@@ -9,7 +9,15 @@
     <p>&nbsp;</p>
     <?php if ($admin) { ?>
         <span>Sólo admin:</span>
-        <span><a href="<?= $urls['load'] ?>">Cargar datos Reales</a></span>
+        <ul>
+            <li>
+                <a href="<?= $urls['load'] ?>"  class="contrast">Cargar resultados reales</a>
+            </li>
+            <li>
+                <a href="<?= $urls['users'] ?>" class="contrast">Administrar Usuarios</a>
+            </li>
+            </li>
+        </ul>
     <?php } ?>
 </div>
 <p>&nbsp;</p>

@@ -162,4 +162,36 @@ class FactoryDao
          FROM timezone AS t
          WHERE LOCATE(LOWER('%s'), t.country) > 0 and t.default = 1 limit 1", stripslashes($country));
     }
+
+    // get users
+    static public function getUsers()
+    {
+        return "SELECT
+                u.id,
+                u.nombre,
+                u.pais,
+                u.email,
+                group_concat(distinct g.nombre) as grupos,
+                count( DISTINCT up.usuario_id, up.partido_id ) AS loaded,
+                sum(up.puntaje) as score
+                    FROM
+                        usuario AS u
+                        LEFT JOIN usuario_partido up ON up.usuario_id = u.id 
+                        LEFT JOIN grupo_usuario gu ON gu.usuario_id = u.id
+                        LEFT JOIN grupo g ON g.id = gu.grupo_id
+                    GROUP BY
+                        u.id";
+    }
+
+    // get user by id
+    static public function getUserById($userId)
+    {
+        return "SELECT
+                u.id,
+                u.nombre,
+                u.email
+                FROM
+                usuario AS u
+                WHERE u.id = $userId";
+    }
 }
