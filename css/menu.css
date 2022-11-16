@@ -1,0 +1,51 @@
+/* Theming */
+:root{
+    --white: #f9f9f9;
+    --black: #36383F;
+    --grey: #85888C;
+}
+/* Header */
+.header{
+    background-color: var(--black);
+    box-shadow: 1px 1px 5px 0px var(--grey);
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+/* Logo */
+.logo {
+    width: 106px;
+    margin-left: 29px;
+    float: left !important;
+}
+
+/* Nav menu */
+
+details{
+    float: right;
+    margin-right: 40px;
+    margin-top: 20px;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: fit-content;
+    border-bottom:none !important
+}
+
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--black);
+}
+
+li {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 52px;
+}
+
+/* Menu Icon *

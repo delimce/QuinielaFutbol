@@ -1,2 +1,6 @@
 data/
-vendors/
+vendor/
+.vscode/
+
+.env
+**/log/*.log

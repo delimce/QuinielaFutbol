@@ -1,0 +1,135 @@
+/* custom form elements */
+
+
+.content {
+    min-height: 600px;
+}
+
+h1 {
+    padding-left: 22px;
+}
+
+.main-img img {
+    width: 20%;
+}
+
+.error {
+    color: red;
+}
+
+.form-error {
+    color: yellow;
+    padding: 4px;
+    margin: auto;
+}
+
+.header {
+    float: right;
+    text-align: right;
+    padding: 24px 34px 12px 10px;
+}
+
+
+.footer {
+    text-align: center !important;
+    padding: 20px 0px 20px 0px;
+}
+
+.login-image img {
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto;
+}
+
+.user-selected {
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.user-selected .full-name {
+    color: aqua !important;
+}
+
+.dashboard {
+    line-height: 38px;
+}
+
+.featured {
+    font-weight: bolder;
+    font-size: 28px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+input.result {
+    color: gray;
+    min-width: 70px;
+    text-align: center;
+}
+
+.show-msg {
+    text-align: center;
+    margin: auto;
+}
+
+tr h3 {
+    margin: 15px 0 15px 0;
+}
+
+.full-name {
+    display: block;
+    text-transform: capitalize;
+    overflow: auto;
+}
+
+.load-result {
+    margin: auto;
+    text-align: center;
+    font-size: x-large
+}
+
+.load-result input {
+    margin-top: 14px !important;
+    font-size: large;
+}
+
+.results td{
+    border: 0;
+    padding-bottom: 20px;
+} 
+
+.match-hour td{
+    line-height: 1px;
+    border: 0;
+    text-align: center !important;
+    font-size: smaller;
+}
+
+
+/* media queries for responsive design */
+
+@media only screen and (max-width: 600px) {
+
+    .load-team,
+    .load-result {
+        padding: 0;
+        margin: 0;
+    }
+
+    .load-team {
+        padding: 0 0 0 6px
+    }
+
+    .load-vs {
+        margin: auto;
+    }
+
+    .load-flag {
+        display: none;
+    }
+
+    .match-hour td {
+        padding-left: 35%;
+        text-align: left !important;
+      }
+}
