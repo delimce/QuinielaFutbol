@@ -19,6 +19,7 @@ const WEB_FOLDER = '/'; //CONTAINER FOLDER
 //===============================================
 const VIEW_PATH = APP_PATH . 'views/'; //with trailing slash pls
 const LAYOUT_PATH = APP_PATH . 'layouts/'; //with trailing slash pls
+const IMAGES_PATH = WEB_FOLDER . 'images/'; //
 
 //===============================================
 // OTHERS CONSTANTS
