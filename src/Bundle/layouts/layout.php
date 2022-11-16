@@ -20,7 +20,7 @@ use App\Libs\Security;
 
 <body>
   <header class="header">
-    <span class="logo"><a href="<?= $_ENV['BASE_URL'] ?>"><img src="../images/wc2022.png" alt=""></a></span>
+    <span class="logo"><a href="<?= $_ENV['BASE_URL'] ?>"><img src="<?= IMAGES_PATH.'/wc2022.png'?>"></a></span>
     <span class="full-name"> <?= Security::getUserName() ?>&nbsp;|&nbsp;<a href="<?= Front::myUrl('main/logout') ?>">Cerrar</a></span>
     <details>
       <summary>Lista de opciones</summary>
