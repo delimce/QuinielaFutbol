@@ -3,10 +3,10 @@
 <table>
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>email</th>
+                <th style="min-width: 230px;">Nombre</th>
+                <th style="min-width: 200px;">email</th>
                 <th>País</th>
-                <th>Grupo</th>
+                <th style="min-width: 200px;">Grupo</th>
                 <th>Cargados</th>
                 <th>Puntos</th>
                 <th>&nbsp;</th>
