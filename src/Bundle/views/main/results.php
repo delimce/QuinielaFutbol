@@ -24,11 +24,11 @@
                     <td><?= $name1 ?></td>
                     <td><img src="../images/band/<?= $flag1 ?>" alt=""></td>
                     <td>
-                        <h3><?= $match->marcador1 ?></h3>
+                        <h3><?= $match->marcador1 ?? '-' ?></h3>
                     </td>
                     <td><b>Vs</b></td>
                     <td>
-                        <h3><?= $match->marcador2 ?></h3>
+                        <h3><?= $match->marcador2 ?? '-' ?></h3>
                     </td>
                     <td><img src="../images/band/<?= $flag2 ?>" alt=""></td>
                     <td><?= $name2 ?></td>
