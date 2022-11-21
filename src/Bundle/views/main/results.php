@@ -15,7 +15,7 @@
                 # group by date d/m
                 $date2 = $match->fecha2;
                 if ($date2 != $tempDate) {
-                    echo "<h3>Jornada: $date2</h3>";
+                    echo "<tr><td colspan='6'><h3>Jornada: $date2</h3><td></tr>";
                     $tempDate = $date2;
                 }
                 ?>
