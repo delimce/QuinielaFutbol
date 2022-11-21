@@ -47,6 +47,7 @@ class FactoryDao
             ";
     }
 
+    // @todo: score when user belong to multiple groups doesn't work
     static public function getRanking()
     {
 
@@ -84,7 +85,7 @@ class FactoryDao
                 order by puntos desc";
     }
 
-    static public function getMatchesToday($ronda, $date)
+    static public function getMatchesToday($ronda)
     {
 
         return "SELECT
@@ -100,7 +101,7 @@ class FactoryDao
                 FROM
                 partido AS p
                 WHERE
-                p.ronda_id = $ronda and p.fecha <= '$date'
+                p.ronda_id = $ronda  and p.estatus = 1
                 ORDER BY
                 p.fecha ASC ";
     }
