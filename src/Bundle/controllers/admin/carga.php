@@ -15,7 +15,7 @@ function _carga() {
      $currentDate = date("d/m h:i:A");
     
      $db = new ObjectDB();
-     $db->setSql(FactoryDao::getMatchesToday($roundID, $date));
+     $db->setSql(FactoryDao::getMatchesToday($roundID));
      $db->executeQuery();
      
      $db->close();

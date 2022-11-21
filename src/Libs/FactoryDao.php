@@ -101,7 +101,7 @@ class FactoryDao
                 FROM
                 partido AS p
                 WHERE
-                p.ronda_id = $ronda  and p.estatus = 1
+                p.ronda_id = $ronda  and p.fecha <= NOW()
                 ORDER BY
                 p.fecha ASC ";
     }
