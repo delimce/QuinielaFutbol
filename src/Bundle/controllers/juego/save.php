@@ -28,7 +28,10 @@ function _save()
 
     //// borrando el partido si no tiene resultados cargados y si aun no se ha hecho
     deleteAudit(Security::getUserName(), $roundID);
-    $db->deleteWhere("usuario_id = " . Security::getUserID() . " and estatus = 0 and partido_id in (select id from partido where estatus = 0 and (fecha - INTERVAL 60 MINUTE) > '$currentDate' ) ");
+
+    $minutesBeforeBet = MIN_HOUR_TO_BET * 60;
+
+    $db->deleteWhere("usuario_id = " . Security::getUserID() . " and estatus = 0 and partido_id in (select id from partido where estatus = 0 and (fecha - INTERVAL $minutesBeforeBet MINUTE) > '$currentDate' ) ");
 
     ////insertando resultados de partidos
     for ($i = 0; $i < count($matches); $i++) {
