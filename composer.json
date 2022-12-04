@@ -1,6 +1,6 @@
 {
     "name": "delimce/quiniela",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "description": "Gaming web application for soccer pools",
     "autoload": {
         "psr-4": {

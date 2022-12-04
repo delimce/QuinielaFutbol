@@ -33,7 +33,7 @@ lo siguiente:
 4. Restaurar la base de datos ubicada en ``/docker/mysql/worldcup.sql``
 
 ## Muy importante para la ejecución:
- 1. Asegúrate la hora de los partidos en tu país según el calendario FIFA para que esten sincronizados con la fecha en que tus usuarios puedan hacer sus apuestas, recuerda que el sistema deja modificar la quiniela sólo hasta una hora antes del partido.
+ 1. Asegúrate la hora de los partidos en tu país según el calendario FIFA para que esten sincronizados con la fecha en que tus usuarios puedan hacer sus apuestas, recuerda que el sistema deja modificar la quiniela sólo hasta 2 horas antes del partido. (configurable en setup.php)
  
  2. crea un nuevo usuario y modifica en la base de datos el Rol o perfil del mismo a "admin" para que solo tu puedas entrar a cargar las información de los partidos reales. (Resultados)
 
