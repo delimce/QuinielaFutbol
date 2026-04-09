@@ -1,6 +1,9 @@
 QuinielaFutbol
 ==============
 
+## La versión premium la puedes encontrar publicada en la web: https://miquiniela.es 
+(crea tú cuenta y comienza a jugar gratuitamente la quiniela del mundial Usa 2026)
+
 ## Aplicación para jugar quinielas de futbol elaborada en PHP con MYSQL
 
 > Proyecto mantenido desde el 2012 dudas o sugerencias y soporte técnico usar telegram: @delimce
